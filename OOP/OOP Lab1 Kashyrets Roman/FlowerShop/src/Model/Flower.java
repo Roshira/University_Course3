@@ -1,9 +1,6 @@
-package main.java.model;
+package Model;
 
-/**
- * Абстрактний клас для квітки, що успадковує ShopItem.
- * Додає специфічні властивості: рівень свіжості та довжину стебла.
- */
+
 public abstract class Flower extends ShopItem {
     private int freshnessLevel;
     private double stemLength;
@@ -15,10 +12,10 @@ public abstract class Flower extends ShopItem {
     }
 
     public int getFreshnessLevel() {
-        return freshnessLevel;
+        return this.freshnessLevel;
     }
 
     public double getStemLength() {
-        return stemLength;
+        return this.stemLength;
     }
 }

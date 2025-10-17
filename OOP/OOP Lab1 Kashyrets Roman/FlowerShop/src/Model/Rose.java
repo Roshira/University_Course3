@@ -1,8 +1,6 @@
-package main.java.model;
-
+package Model;
 
 public class Rose extends Flower {
-    // Можна додати унікальні властивості, напр. наявність шипів
     private boolean hasThorns;
 
     public Rose(double price, int freshnessLevel, double stemLength, boolean hasThorns) {
@@ -11,6 +9,7 @@ public class Rose extends Flower {
     }
 
     public boolean hasThorns() {
-        return hasThorns;
+        return this.hasThorns;
     }
 }
+
