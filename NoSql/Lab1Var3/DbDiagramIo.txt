@@ -1,0 +1,239 @@
+// ===================================
+// DBML для Екосистеми Туризму
+// ===================================
+
+Project TourismEcosystem {
+  database_type: 'PostgreSQL'
+  Note: 'Схема БД для туристичної екосистеми'
+}
+
+// ===================================
+// 1. Користувачі та Провайдери
+// ===================================
+
+Table Users {
+  user_id bigserial [pk, increment]
+  username varchar(100) [unique, not null]
+  email varchar(255) [unique, not null]
+  password_hash varchar(255) [not null]
+  first_name varchar(100)
+  last_name varchar(100)
+  created_at timestamptz [default: `CURRENT_TIMESTAMP`, not null]
+  updated_at timestamptz [default: `CURRENT_TIMESTAMP`, not null]
+  updated_by_user_id bigint [note: 'Хто останній змінив. Може посилатись сам на себе або на системного юзера']
+  
+  Note: 'Таблиця користувачів (клієнти, менеджери)'
+}
+
+Table ServiceProviders {
+  provider_id bigserial [pk, increment]
+  name varchar(255) [not null]
+  contact_email varchar(255)
+  phone varchar(50)
+  
+  // Аудит та Soft Delete
+  created_at timestamptz [default: `CURRENT_TIMESTAMP`, not null]
+  updated_at timestamptz [default: `CURRENT_TIMESTAMP`, not null]
+  updated_by_user_id bigint [ref: > Users.user_id]
+  is_deleted boolean [default: false, not null]
+  
+  Note: 'Компанії, що надають послуги (готелі, тур-агенції)'
+}
+
+// ===================================
+// 2. Географія
+// ===================================
+
+Table Countries {
+  country_id serial [pk, increment]
+  name varchar(100) [unique, not null]
+  country_code char(2) [unique, not null]
+}
+
+Table Cities {
+  city_id bigserial [pk, increment]
+  name varchar(100) [not null]
+  country_id int [not null, ref: > Countries.country_id]
+}
+
+Table POIs { // Points of Interest
+  poi_id bigserial [pk, increment]
+  city_id bigint [not null, ref: > Cities.city_id]
+  name varchar(255) [not null]
+  description text
+  latitude decimal(9, 6)
+  longitude decimal(9, 6)
+  
+  // Аудит
+  created_at timestamptz [default: `CURRENT_TIMESTAMP`, not null]
+  updated_at timestamptz [default: `CURRENT_TIMESTAMP`, not null]
+  updated_by_user_id bigint [ref: > Users.user_id]
+}
+
+// ===================================
+// 3. Послуги (Проживання, Тури, Транспорт)
+// ===================================
+
+Table AccommodationTypes {
+  acc_type_id serial [pk, increment]
+  type_name varchar(100) [unique, not null, note: 'Напр: Готель, Апартаменти, Хостел']
+}
+
+Table Accommodations {
+  accommodation_id bigserial [pk, increment]
+  provider_id bigint [not null, ref: > ServiceProviders.provider_id]
+  city_id bigint [not null, ref: > Cities.city_id]
+  acc_type_id int [not null, ref: > AccommodationTypes.acc_type_id]
+  name varchar(255) [not null]
+  address varchar(500)
+  description text
+  price_per_night decimal(10, 2) [not null]
+  
+  // Аудит та Soft Delete
+  created_at timestamptz [default: `CURRENT_TIMESTAMP`, not null]
+  updated_at timestamptz [default: `CURRENT_TIMESTAMP`, not null]
+  updated_by_user_id bigint [ref: > Users.user_id]
+  is_deleted boolean [default: false, not null]
+}
+
+Table TourCategories {
+  category_id serial [pk, increment]
+  category_name varchar(100) [unique, not null, note: 'Напр: Культурний, Екстрім, Гастро']
+}
+
+Table Tours {
+  tour_id bigserial [pk, increment]
+  provider_id bigint [not null, ref: > ServiceProviders.provider_id]
+  name varchar(255) [not null]
+  description text
+  start_city_id bigint [not null, ref: > Cities.city_id]
+  duration_hours int
+  price decimal(10, 2) [not null]
+  
+  // Аудит та Soft Delete
+  created_at timestamptz [default: `CURRENT_TIMESTAMP`, not null]
+  updated_at timestamptz [default: `CURRENT_TIMESTAMP`, not null]
+  updated_by_user_id bigint [ref: > Users.user_id]
+  is_deleted boolean [default: false, not null]
+}
+
+Table TransportationTypes {
+  transport_type_id serial [pk, increment]
+  type_name varchar(100) [unique, not null, note: 'Напр: Авіа, Залізниця, Автобус']
+}
+
+Table Transportations {
+  transportation_id bigserial [pk, increment]
+  provider_id bigint [not null, ref: > ServiceProviders.provider_id]
+  transport_type_id int [not null, ref: > TransportationTypes.transport_type_id]
+  departure_city_id bigint [not null, ref: > Cities.city_id]
+  arrival_city_id bigint [not null, ref: > Cities.city_id]
+  departure_time timestamptz [not null]
+  arrival_time timestamptz
+  price decimal(10, 2) [not null]
+  
+  // Аудит та Soft Delete
+  created_at timestamptz [default: `CURRENT_TIMESTAMP`, not null]
+  updated_at timestamptz [default: `CURRENT_TIMESTAMP`, not null]
+  updated_by_user_id bigint [ref: > Users.user_id]
+  is_deleted boolean [default: false, not null]
+}
+
+// ===================================
+// 4. Бронювання та Відгуки
+// ===================================
+
+Table Bookings {
+  booking_id bigserial [pk, increment]
+  user_id bigint [not null, ref: > Users.user_id]
+  booking_date timestamptz [default: `CURRENT_TIMESTAMP`, not null]
+  total_price decimal(12, 2)
+  status varchar(50) [not null, default: 'pending', note: 'pending, confirmed, cancelled']
+  
+  // Аудит
+  created_at timestamptz [default: `CURRENT_TIMESTAMP`, not null]
+  updated_at timestamptz [default: `CURRENT_TIMESTAMP`, not null]
+  updated_by_user_id bigint [ref: > Users.user_id]
+}
+
+Table BookingItems {
+  booking_item_id bigserial [pk, increment]
+  booking_id bigint [not null, ref: > Bookings.booking_id]
+  
+  // Поліморфний зв'язок (одне з полів має бути not null)
+  accommodation_id bigint [ref: > Accommodations.accommodation_id]
+  tour_id bigint [ref: > Tours.tour_id]
+  transportation_id bigint [ref: > Transportations.transportation_id]
+  
+  item_price decimal(10, 2) [not null]
+  start_date date
+  end_date date
+  
+  // Аудит
+  created_at timestamptz [default: `CURRENT_TIMESTAMP`, not null]
+  updated_at timestamptz [default: `CURRENT_TIMESTAMP`, not null]
+  updated_by_user_id bigint [ref: > Users.user_id]
+}
+
+Table Payments {
+  payment_id bigserial [pk, increment]
+  booking_id bigint [not null, ref: > Bookings.booking_id]
+  payment_date timestamptz [default: `CURRENT_TIMESTAMP`, not null]
+  amount decimal(12, 2) [not null]
+  payment_method varchar(50) [note: 'card, paypal, etc.']
+  status varchar(50) [not null, default: 'pending', note: 'pending, success, failed']
+  transaction_id varchar(255)
+  
+  // Аудит
+  created_at timestamptz [default: `CURRENT_TIMESTAMP`, not null]
+  updated_at timestamptz [default: `CURRENT_TIMESTAMP`, not null]
+}
+
+Table Reviews {
+  review_id bigserial [pk, increment]
+  user_id bigint [not null, ref: > Users.user_id]
+  
+  // Поліморфний зв'язок
+  accommodation_id bigint [ref: > Accommodations.accommodation_id]
+  tour_id bigint [ref: > Tours.tour_id]
+  
+  rating int [not null, note: 'Від 1 до 5']
+  comment text
+  
+  // Аудит та Soft Delete
+  created_at timestamptz [default: `CURRENT_TIMESTAMP`, not null]
+  updated_at timestamptz [default: `CURRENT_TIMESTAMP`, not null]
+  updated_by_user_id bigint [ref: > Users.user_id]
+  is_deleted boolean [default: false, not null]
+  
+  Indexes {
+    (user_id, accommodation_id) [unique]
+    (user_id, tour_id) [unique]
+  }
+}
+
+// ===================================
+// 5. Зв'язуючі таблиці (Many-to-Many)
+// ===================================
+
+Table Tour_TourCategories {
+  tour_id bigint [ref: > Tours.tour_id]
+  category_id int [ref: > TourCategories.category_id]
+  
+  Indexes {
+    (tour_id, category_id) [pk]
+  }
+}
+
+Table Tour_POIs {
+  tour_id bigint [ref: > Tours.tour_id]
+  poi_id bigint [ref: > POIs.poi_id]
+  
+  Indexes {
+    (tour_id, poi_id) [pk]
+  }
+}
+
+// ===================================
+// Foreign Key References (для Users.updated_by_user_id)
+// ===================================
