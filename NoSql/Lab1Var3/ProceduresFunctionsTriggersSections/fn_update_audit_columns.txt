@@ -1,0 +1,19 @@
+CREATE OR REPLACE FUNCTION tourism.fn_update_audit_columns()
+RETURNS TRIGGER AS $$
+BEGIN
+   -- Перевіряємо, чи `updated_by_user_id` встановлено у запиті
+   -- Якщо ні, залишаємо старе значення (яке могло бути встановлене процедурою)
+   -- Або, якщо логіка вимагає, можна встановити 'system' (0)
+   IF (TG_OP = 'UPDATE') THEN
+       NEW.updated_at = CURRENT_TIMESTAMP;
+       
+       -- Якщо `updated_by_user_id` не було передано в UPDATE
+       -- (тобто NEW.updated_by_user_id таке ж як OLD.updated_by_user_id)
+       -- то ми не знаємо, хто виконав зміну, і це погано.
+       -- Приймаємо, що процедури *завжди* встановлюють `updated_by_user_id`.
+       -- Цей тригер *лише* оновить `updated_at`.
+       -- Поле `updated_by_user_id` має оновлюватись через процедури.
+   END IF;
+   RETURN NEW;
+END;
+$$ LANGUAGE plpgsql;

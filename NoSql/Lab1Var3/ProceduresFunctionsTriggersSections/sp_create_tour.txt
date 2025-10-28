@@ -1,0 +1,22 @@
+-- Переконайтеся, що ви перебуваєте у правильній схемі (або додайте префікс tourism.)
+-- SET search_path TO tourism;
+
+CREATE OR REPLACE PROCEDURE sp_create_tour(
+    IN p_provider_id bigint,
+    IN p_name varchar(255),
+    IN p_description text,
+    IN p_start_city_id bigint,
+    IN p_price decimal(10, 2),
+    IN p_user_id bigint,
+    INOUT p_new_id bigint DEFAULT NULL -- 'INOUT' для повернення ID
+)
+LANGUAGE plpgsql
+AS $$
+BEGIN
+    INSERT INTO Tours
+        (provider_id, name, description, start_city_id, price, updated_by_user_id)
+    VALUES
+        (p_provider_id, p_name, p_description, p_start_city_id, p_price, p_user_id)
+    RETURNING tour_id INTO p_new_id;
+END;
+$$;

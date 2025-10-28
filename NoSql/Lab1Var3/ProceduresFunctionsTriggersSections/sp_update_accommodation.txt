@@ -1,0 +1,23 @@
+CREATE OR REPLACE PROCEDURE sp_update_accommodation(
+    IN p_accommodation_id bigint,
+    IN p_name varchar(255),
+    IN p_address varchar(500),
+    IN p_description text,
+    IN p_price_per_night decimal(10, 2),
+    IN p_user_id bigint
+)
+LANGUAGE plpgsql
+AS $$
+BEGIN
+    UPDATE Accommodations
+    SET
+        name = p_name,
+        address = p_address,
+        description = p_description,
+        price_per_night = p_price_per_night,
+        updated_by_user_id = p_user_id
+        -- `updated_at` оновить тригер trg_accommodations_audit
+    WHERE
+        accommodation_id = p_accommodation_id AND is_deleted = FALSE;
+END;
+$$;

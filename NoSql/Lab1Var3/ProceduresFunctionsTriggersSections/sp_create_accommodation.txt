@@ -1,0 +1,21 @@
+CREATE OR REPLACE PROCEDURE sp_create_accommodation(
+    IN p_provider_id bigint,
+    IN p_city_id bigint,
+    IN p_acc_type_id int,
+    IN p_name varchar(255),
+    IN p_address varchar(500),
+    IN p_description text,
+    IN p_price_per_night decimal(10, 2),
+    IN p_user_id bigint,
+    INOUT p_new_id bigint DEFAULT NULL -- Використовуємо INOUT для повернення ID
+)
+LANGUAGE plpgsql
+AS $$
+BEGIN
+    INSERT INTO Accommodations
+        (provider_id, city_id, acc_type_id, name, address, description, price_per_night, updated_by_user_id)
+    VALUES
+        (p_provider_id, p_city_id, p_acc_type_id, p_name, p_address, p_description, p_price_per_night, p_user_id)
+    RETURNING accommodation_id INTO p_new_id;
+END;
+$$;

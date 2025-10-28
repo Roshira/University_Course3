@@ -1,0 +1,16 @@
+CREATE OR REPLACE PROCEDURE sp_soft_delete_tour(
+    p_tour_id bigint,
+    p_user_id bigint
+)
+LANGUAGE plpgsql
+AS $$
+BEGIN
+    UPDATE tourism.Tours
+    SET
+        is_deleted = TRUE,
+        updated_at = CURRENT_TIMESTAMP,
+        updated_by_user_id = p_user_id
+    WHERE
+        tour_id = p_tour_id;
+END;
+$$;

@@ -1,0 +1,16 @@
+CREATE OR REPLACE VIEW v_active_tours AS
+SELECT
+    tour_id,
+    provider_id,
+    name,
+    description,
+    start_city_id,
+    duration_hours,
+    price,
+    created_at,
+    updated_at,
+    updated_by_user_id
+FROM
+    Tours
+WHERE
+    is_deleted = FALSE;

@@ -1,0 +1,6 @@
+CREATE OR REPLACE VIEW v_active_tours_with_rating AS
+SELECT
+    t.*,
+    fn_get_average_rating_for_tour(t.tour_id) AS average_rating
+FROM
+    v_active_tours t;

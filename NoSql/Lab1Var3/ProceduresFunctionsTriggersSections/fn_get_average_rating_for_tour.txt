@@ -1,0 +1,15 @@
+CREATE OR REPLACE FUNCTION fn_get_average_rating_for_tour(
+    p_tour_id bigint
+)
+RETURNS decimal(3, 2) AS $$
+DECLARE
+    avg_rating decimal(3, 2);
+BEGIN
+    SELECT AVG(rating)
+    INTO avg_rating
+    FROM tourism.Reviews
+    WHERE tour_id = p_tour_id AND is_deleted = FALSE;
+    
+    RETURN COALESCE(avg_rating, 0.00);
+END;
+$$ LANGUAGE plpgsql;

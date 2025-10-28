@@ -1,0 +1,70 @@
+-- Переконайтеся, що ви у правильній схемі (або додайте префікс tourism.)
+-- SET search_path TO tourism;
+
+CREATE OR REPLACE PROCEDURE sp_create_booking(
+    IN p_user_id bigint,
+    IN p_items text, 
+    INOUT p_booking_id bigint DEFAULT NULL
+)
+LANGUAGE plpgsql
+AS $$
+DECLARE
+    v_total_price decimal(12, 2) := 0;
+    item record;
+    v_items_jsonb jsonb;
+    v_item_price decimal(10, 2); -- <--- ОСЬ ВИПРАВЛЕННЯ (додано цей рядок)
+BEGIN
+    -- 1. Конвертуємо отриманий text в jsonb
+    v_items_jsonb := p_items::jsonb;
+
+    -- 2. Створюємо основне бронювання
+    INSERT INTO Bookings (user_id, status, total_price, updated_by_user_id)
+    VALUES (p_user_id, 'pending', 0, p_user_id)
+    RETURNING booking_id INTO p_booking_id;
+
+    -- 3. В циклі додаємо елементи
+    FOR item IN SELECT * FROM jsonb_to_recordset(v_items_jsonb -> 'items') AS x(
+            type text, 
+            id bigint, 
+            price decimal(10, 2),
+            start_date text,
+            end_date text
+        )
+    LOOP
+        v_item_price := item.price; -- <-- Тепер ця змінна оголошена
+        v_total_price := v_total_price + v_item_price;
+        
+        INSERT INTO BookingItems (
+            booking_id, 
+            accommodation_id, 
+            tour_id, 
+            transportation_id, 
+            item_price, 
+            start_date, 
+            end_date, 
+            updated_by_user_id
+        )
+        VALUES (
+            p_booking_id,
+            CASE WHEN item.type = 'acc' THEN item.id ELSE NULL END,
+            CASE WHEN item.type = 'tour' THEN item.id ELSE NULL END,
+            CASE WHEN item.type = 'trans' THEN item.id ELSE NULL END,
+            v_item_price,
+            CASE WHEN item.start_date IS NOT NULL THEN item.start_date::date ELSE NULL END,
+            CASE WHEN item.end_date IS NOT NULL THEN item.end_date::date ELSE NULL END,
+            p_user_id
+        );
+    END LOOP;
+    
+    -- 4. Оновлюємо загальну суму бронювання
+    UPDATE Bookings
+    SET total_price = v_total_price
+    WHERE booking_id = p_booking_id;
+    
+EXCEPTION
+    WHEN others THEN
+        RAISE NOTICE 'Помилка при створенні бронювання: %', SQLERRM;
+        ROLLBACK;
+        p_booking_id := NULL;
+END;
+$$;

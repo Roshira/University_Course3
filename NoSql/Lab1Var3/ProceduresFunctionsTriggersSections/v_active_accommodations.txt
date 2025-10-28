@@ -1,0 +1,17 @@
+CREATE OR REPLACE VIEW v_active_accommodations AS
+SELECT
+    accommodation_id,
+    provider_id,
+    city_id,
+    acc_type_id,
+    name,
+    address,
+    description,
+    price_per_night,
+    created_at,
+    updated_at,
+    updated_by_user_id
+FROM
+    Accommodations
+WHERE
+    is_deleted = FALSE;

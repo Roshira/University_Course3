@@ -1,0 +1,4 @@
+CREATE TRIGGER trg_tours_audit
+BEFORE UPDATE ON tourism.Tours
+FOR EACH ROW
+EXECUTE FUNCTION tourism.fn_update_audit_columns();

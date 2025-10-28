@@ -1,0 +1,209 @@
+
+-- 1. Користувачі
+CREATE TABLE Users (
+    user_id bigserial PRIMARY KEY,
+    username varchar(100) UNIQUE NOT NULL,
+    email varchar(255) UNIQUE NOT NULL,
+    password_hash varchar(255) NOT NULL,
+    first_name varchar(100),
+    last_name varchar(100),
+    created_at timestamptz NOT NULL DEFAULT CURRENT_TIMESTAMP,
+    updated_at timestamptz NOT NULL DEFAULT CURRENT_TIMESTAMP,
+    updated_by_user_id bigint -- Може бути NULL або посилатись на себе
+);
+
+-- Додаємо "системного" користувача для автоматичних дій
+INSERT INTO Users (user_id, username, email, password_hash, first_name)
+VALUES (0, 'system', 'system@internal.host', 'N/A', 'System')
+ON CONFLICT (user_id) DO NOTHING;
+
+-- 1. Спочатку додаємо зовнішній ключ
+ALTER TABLE Users ADD CONSTRAINT fk_users_updated_by
+    FOREIGN KEY (updated_by_user_id) REFERENCES Users(user_id);
+
+-- 2. Потім встановлюємо значення за замовчуванням для стовпця
+ALTER TABLE Users ALTER COLUMN updated_by_user_id SET DEFAULT 0;
+
+-- 2. Провайдери послуг
+CREATE TABLE ServiceProviders (
+    provider_id bigserial PRIMARY KEY,
+    name varchar(255) NOT NULL,
+    contact_email varchar(255),
+    phone varchar(50),
+    created_at timestamptz NOT NULL DEFAULT CURRENT_TIMESTAMP,
+    updated_at timestamptz NOT NULL DEFAULT CURRENT_TIMESTAMP,
+    updated_by_user_id bigint NOT NULL DEFAULT 0 REFERENCES Users(user_id),
+    is_deleted boolean NOT NULL DEFAULT FALSE
+);
+
+-- 3. Географія
+CREATE TABLE Countries (
+    country_id serial PRIMARY KEY,
+    name varchar(100) UNIQUE NOT NULL,
+    country_code char(2) UNIQUE NOT NULL
+);
+
+CREATE TABLE Cities (
+    city_id bigserial PRIMARY KEY,
+    name varchar(100) NOT NULL,
+    country_id int NOT NULL REFERENCES Countries(country_id)
+);
+
+CREATE TABLE POIs (
+    poi_id bigserial PRIMARY KEY,
+    city_id bigint NOT NULL REFERENCES Cities(city_id),
+    name varchar(255) NOT NULL,
+    description text,
+    latitude decimal(9, 6),
+    longitude decimal(9, 6),
+    created_at timestamptz NOT NULL DEFAULT CURRENT_TIMESTAMP,
+    updated_at timestamptz NOT NULL DEFAULT CURRENT_TIMESTAMP,
+    updated_by_user_id bigint NOT NULL DEFAULT 0 REFERENCES Users(user_id)
+);
+
+-- 4. Типи послуг (Довідники)
+CREATE TABLE AccommodationTypes (
+    acc_type_id serial PRIMARY KEY,
+    type_name varchar(100) UNIQUE NOT NULL
+);
+
+CREATE TABLE TourCategories (
+    category_id serial PRIMARY KEY,
+    category_name varchar(100) UNIQUE NOT NULL
+);
+
+CREATE TABLE TransportationTypes (
+    transport_type_id serial PRIMARY KEY,
+    type_name varchar(100) UNIQUE NOT NULL
+);
+
+-- 5. Послуги
+CREATE TABLE Accommodations (
+    accommodation_id bigserial PRIMARY KEY,
+    provider_id bigint NOT NULL REFERENCES ServiceProviders(provider_id),
+    city_id bigint NOT NULL REFERENCES Cities(city_id),
+    acc_type_id int NOT NULL REFERENCES AccommodationTypes(acc_type_id),
+    name varchar(255) NOT NULL,
+    address varchar(500),
+    description text,
+    price_per_night decimal(10, 2) NOT NULL CHECK (price_per_night >= 0),
+    created_at timestamptz NOT NULL DEFAULT CURRENT_TIMESTAMP,
+    updated_at timestamptz NOT NULL DEFAULT CURRENT_TIMESTAMP,
+    updated_by_user_id bigint NOT NULL DEFAULT 0 REFERENCES Users(user_id),
+    is_deleted boolean NOT NULL DEFAULT FALSE
+);
+
+CREATE TABLE Tours (
+    tour_id bigserial PRIMARY KEY,
+    provider_id bigint NOT NULL REFERENCES ServiceProviders(provider_id),
+    name varchar(255) NOT NULL,
+    description text,
+    start_city_id bigint NOT NULL REFERENCES Cities(city_id),
+    duration_hours int CHECK (duration_hours > 0),
+    price decimal(10, 2) NOT NULL CHECK (price >= 0),
+    created_at timestamptz NOT NULL DEFAULT CURRENT_TIMESTAMP,
+    updated_at timestamptz NOT NULL DEFAULT CURRENT_TIMESTAMP,
+    updated_by_user_id bigint NOT NULL DEFAULT 0 REFERENCES Users(user_id),
+    is_deleted boolean NOT NULL DEFAULT FALSE
+);
+
+CREATE TABLE Transportations (
+    transportation_id bigserial PRIMARY KEY,
+    provider_id bigint NOT NULL REFERENCES ServiceProviders(provider_id),
+    transport_type_id int NOT NULL REFERENCES TransportationTypes(transport_type_id),
+    departure_city_id bigint NOT NULL REFERENCES Cities(city_id),
+    arrival_city_id bigint NOT NULL REFERENCES Cities(city_id),
+    departure_time timestamptz NOT NULL,
+    arrival_time timestamptz,
+    price decimal(10, 2) NOT NULL CHECK (price >= 0),
+    created_at timestamptz NOT NULL DEFAULT CURRENT_TIMESTAMP,
+    updated_at timestamptz NOT NULL DEFAULT CURRENT_TIMESTAMP,
+    updated_by_user_id bigint NOT NULL DEFAULT 0 REFERENCES Users(user_id),
+    is_deleted boolean NOT NULL DEFAULT FALSE,
+    CONSTRAINT chk_arrival_time CHECK (arrival_time IS NULL OR arrival_time > departure_time)
+);
+
+-- 6. Бронювання
+CREATE TABLE Bookings (
+    booking_id bigserial PRIMARY KEY,
+    user_id bigint NOT NULL REFERENCES Users(user_id),
+    booking_date timestamptz NOT NULL DEFAULT CURRENT_TIMESTAMP,
+    total_price decimal(12, 2) CHECK (total_price >= 0),
+    status varchar(50) NOT NULL DEFAULT 'pending' CHECK (status IN ('pending', 'confirmed', 'cancelled', 'completed')),
+    created_at timestamptz NOT NULL DEFAULT CURRENT_TIMESTAMP,
+    updated_at timestamptz NOT NULL DEFAULT CURRENT_TIMESTAMP,
+    updated_by_user_id bigint NOT NULL DEFAULT 0 REFERENCES Users(user_id)
+);
+
+CREATE TABLE BookingItems (
+    booking_item_id bigserial PRIMARY KEY,
+    booking_id bigint NOT NULL REFERENCES Bookings(booking_id) ON DELETE CASCADE,
+    accommodation_id bigint REFERENCES Accommodations(accommodation_id),
+    tour_id bigint REFERENCES Tours(tour_id),
+    transportation_id bigint REFERENCES Transportations(transportation_id),
+    item_price decimal(10, 2) NOT NULL,
+    start_date date,
+    end_date date,
+    created_at timestamptz NOT NULL DEFAULT CURRENT_TIMESTAMP,
+    updated_at timestamptz NOT NULL DEFAULT CURRENT_TIMESTAMP,
+    updated_by_user_id bigint NOT NULL DEFAULT 0 REFERENCES Users(user_id),
+    CONSTRAINT chk_one_service_type CHECK (
+        (accommodation_id IS NOT NULL AND tour_id IS NULL AND transportation_id IS NULL) OR
+        (accommodation_id IS NULL AND tour_id IS NOT NULL AND transportation_id IS NULL) OR
+        (accommodation_id IS NULL AND tour_id IS NULL AND transportation_id IS NOT NULL)
+    ),
+    CONSTRAINT chk_dates CHECK (end_date IS NULL OR end_date >= start_date)
+);
+
+CREATE TABLE Payments (
+    payment_id bigserial PRIMARY KEY,
+    booking_id bigint NOT NULL REFERENCES Bookings(booking_id),
+    payment_date timestamptz NOT NULL DEFAULT CURRENT_TIMESTAMP,
+    amount decimal(12, 2) NOT NULL CHECK (amount > 0),
+    payment_method varchar(50),
+    status varchar(50) NOT NULL DEFAULT 'pending' CHECK (status IN ('pending', 'success', 'failed')),
+    transaction_id varchar(255) UNIQUE,
+    created_at timestamptz NOT NULL DEFAULT CURRENT_TIMESTAMP,
+    updated_at timestamptz NOT NULL DEFAULT CURRENT_TIMESTAMP
+);
+-- (Переконайтеся, що ви перебуваєте в тій самій сесії/БД,
+--  де ви створювали таблиці Users, Accommodations і т.д.)
+
+-- 1. Створюємо таблицю БЕЗ префікса схеми
+CREATE TABLE Reviews (
+    review_id bigserial PRIMARY KEY,
+    user_id bigint NOT NULL REFERENCES Users(user_id), -- 'tourism.' видалено
+    accommodation_id bigint REFERENCES Accommodations(accommodation_id), -- 'tourism.' видалено
+    tour_id bigint REFERENCES Tours(tour_id), -- 'tourism.' видалено
+    rating int NOT NULL CHECK (rating BETWEEN 1 AND 5),
+    comment text,
+    created_at timestamptz NOT NULL DEFAULT CURRENT_TIMESTAMP,
+    updated_at timestamptz NOT NULL DEFAULT CURRENT_TIMESTAMP,
+    updated_by_user_id bigint NOT NULL DEFAULT 0 REFERENCES Users(user_id), -- 'tourism.' видалено
+    is_deleted boolean NOT NULL DEFAULT FALSE,
+    CONSTRAINT chk_one_review_target CHECK (
+        (accommodation_id IS NOT NULL AND tour_id IS NULL) OR
+        (accommodation_id IS NULL AND tour_id IS NOT NULL)
+    )
+);
+
+-- 2. Створюємо часткові унікальні ІНДЕКСИ
+CREATE UNIQUE INDEX uq_user_accommodation_review
+    ON Reviews (user_id, accommodation_id) -- 'tourism.' видалено
+    WHERE (accommodation_id IS NOT NULL);
+
+CREATE UNIQUE INDEX uq_user_tour_review
+    ON Reviews (user_id, tour_id) -- 'tourism.' видалено
+    WHERE (tour_id IS NOT NULL);
+-- 8. Таблиці Many-to-Many
+CREATE TABLE Tour_TourCategories (
+    tour_id bigint NOT NULL REFERENCES Tours(tour_id) ON DELETE CASCADE,
+    category_id int NOT NULL REFERENCES TourCategories(category_id) ON DELETE RESTRICT,
+    PRIMARY KEY (tour_id, category_id)
+);
+
+CREATE TABLE Tour_POIs (
+    tour_id bigint NOT NULL REFERENCES Tours(tour_id) ON DELETE CASCADE,
+    poi_id bigint NOT NULL REFERENCES POIs(poi_id) ON DELETE CASCADE,
+    PRIMARY KEY (tour_id, poi_id)
+);

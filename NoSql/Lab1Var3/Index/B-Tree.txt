@@ -1,0 +1,8 @@
+-- Прискорює пошук бронювань конкретного користувача
+CREATE INDEX idx_bookings_user_id ON tourism.Bookings (user_id);
+
+-- Прискорює пошук помешкань у конкретному місті
+CREATE INDEX idx_accommodations_city_id ON tourism.Accommodations (city_id);
+
+-- Прискорює пошук відгуків для конкретного туру
+CREATE INDEX idx_reviews_tour_id ON tourism.Reviews (tour_id) WHERE tour_id IS NOT NULL;

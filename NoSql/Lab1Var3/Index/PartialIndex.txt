@@ -1,0 +1,7 @@
+-- Індекс лише для активних помешкань
+CREATE INDEX idx_accommodations_active ON tourism.Accommodations (accommodation_id)
+WHERE is_deleted = FALSE;
+
+-- Індекс лише для активних турів
+CREATE INDEX idx_tours_active ON tourism.Tours (tour_id)
+WHERE is_deleted = FALSE;
