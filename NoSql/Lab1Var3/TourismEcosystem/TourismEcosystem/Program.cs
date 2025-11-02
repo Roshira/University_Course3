@@ -27,7 +27,7 @@ try
     // --- ОПЕРАЦІЯ 1: Отримати дані про тур (через View) ---
     Console.WriteLine("Шукаємо тур 'Київська спадщина'...");
     var kievTour = (await uow.Tours.GetAllAsync())
-        .FirstOrDefault(t => t.Name == "Київська спадщина");
+        .FirstOrDefault(t => t.Name == "Київська спадщин6а1");
 
     if (kievTour == null)
     {
@@ -37,7 +37,7 @@ try
         // Додайте обов'язкові поля, які очікує процедура
         kievTour = new Tour
         {
-            Name = "Київська спадщина",
+            Name = "Київська спадщин6а1",
             Price = 150.00m,
             ProviderId = 1,    // <-- Вкажіть ID існуючого провайдера
             StartCityId = 1,   // <-- Вкажіть ID існуючого міста
