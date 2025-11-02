@@ -1,0 +1,45 @@
+{
+  "Version": 1,
+  "WorkspaceRootPath": "C:\\University_Course3\\NoSql\\Lab1Var3\\ImageInOtherImageLab2\\",
+  "Documents": [
+    {
+      "AbsoluteMoniker": "D:0:0:{FAA653BE-47B0-48E3-93CC-62D7C8DE1586}|ImageInOtherImageLab2\\ImageInOtherImageLab2.csproj|c:\\university_course3\\nosql\\lab1var3\\imageinotherimagelab2\\imageinotherimagelab2\\program.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{FAA653BE-47B0-48E3-93CC-62D7C8DE1586}|ImageInOtherImageLab2\\ImageInOtherImageLab2.csproj|solutionrelative:imageinotherimagelab2\\program.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    }
+  ],
+  "DocumentGroupContainers": [
+    {
+      "Orientation": 0,
+      "VerticalTabListWidth": 256,
+      "DocumentGroups": [
+        {
+          "DockedWidth": 200,
+          "SelectedChildIndex": 2,
+          "Children": [
+            {
+              "$type": "Bookmark",
+              "Name": "ST:0:0:{131369f2-062d-44a2-8671-91ff31efb4f4}"
+            },
+            {
+              "$type": "Bookmark",
+              "Name": "ST:0:0:{e5c86464-96be-4d7c-9a8b-abcb3bbf5f92}"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 0,
+              "Title": "Program.cs",
+              "DocumentMoniker": "C:\\University_Course3\\NoSql\\Lab1Var3\\ImageInOtherImageLab2\\ImageInOtherImageLab2\\Program.cs",
+              "RelativeDocumentMoniker": "ImageInOtherImageLab2\\Program.cs",
+              "ToolTip": "C:\\University_Course3\\NoSql\\Lab1Var3\\ImageInOtherImageLab2\\ImageInOtherImageLab2\\Program.cs",
+              "RelativeToolTip": "ImageInOtherImageLab2\\Program.cs",
+              "ViewState": "AgIAAC8BAAAAAAAAAAAiwEcBAAABAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-11-02T11:53:15.991Z",
+              "EditorCaption": ""
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}

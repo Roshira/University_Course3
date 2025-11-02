@@ -1,0 +1,12 @@
+{
+  "version": 2,
+  "dgSpecHash": "FoZaFM3c/d4=",
+  "success": true,
+  "projectFilePath": "C:\\University_Course3\\NoSql\\Lab1Var3\\ImageInOtherImageLab2\\ImageInOtherImageLab2\\ImageInOtherImageLab2.csproj",
+  "expectedPackageFiles": [
+    "C:\\Users\\DELL\\.nuget\\packages\\mathnet.numerics\\5.0.0\\mathnet.numerics.5.0.0.nupkg.sha512",
+    "C:\\Users\\DELL\\.nuget\\packages\\microsoft.win32.systemevents\\9.0.10\\microsoft.win32.systemevents.9.0.10.nupkg.sha512",
+    "C:\\Users\\DELL\\.nuget\\packages\\system.drawing.common\\9.0.10\\system.drawing.common.9.0.10.nupkg.sha512"
+  ],
+  "logs": []
+}
