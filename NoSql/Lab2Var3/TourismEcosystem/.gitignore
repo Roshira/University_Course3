@@ -1,0 +1,128 @@
+.appsettings.json
+# ==========================================
+# .NET / C# PROJECT .gitignore
+# ==========================================
+.vs
+# Build results
+bin/
+obj/
+[Bb]uild/
+[Ll]og/
+[Ll]ogs/
+out/
+artifacts/
+
+# Visual Studio files
+.vs/
+.vscode/
+*.suo
+*.user
+*.userosscache
+*.sln.docstates
+
+# Rider / JetBrains
+.idea/
+*.sln.iml
+
+# Packages
+*.nupkg
+*.snupkg
+packages/
+*.nuspec
+.nuget/
+*.psmdcp
+# Uncomment if using package restore
+# !packages/build/
+# !packages/repositories.config
+
+# Publish output
+publish/
+app.publish/
+*.Publish.xml
+
+# User-specific files
+*.userprefs
+*.rsuser
+*.suo
+
+# Configuration files (local)
+appsettings.Development.json
+appsettings.Local.json
+appsettings.*.local.json
+secrets.json
+
+# Logs and diagnostics
+*.log
+*.tlog
+*.dmp
+*.stackdump
+*.pidb
+
+# Test results
+TestResult*/
+TestResults/
+*.VisualState.xml
+*.coverage
+*.coveragexml
+*.trx
+
+# Entity Framework Migrations cache
+Migrations/obj/
+migrations/obj/
+
+# Generated files
+*.generated.cs
+*.g.cs
+*.Designer.cs
+*.g.i.cs
+*.AssemblyInfo.cs
+
+# Temporary files
+*.tmp
+*.temp
+*.bak
+*.backup
+*.old
+*.orig
+*.swp
+*.swo
+
+# ReSharper
+_ReSharper*/
+*.[Rr]e[Ss]harper
+*.DotSettings.user
+
+# Tye / Docker / Containers
+.tye/
+docker-compose.override.yml
+.env
+.env.local
+
+# Node / Angular / React (if using frontend)
+node_modules/
+dist/
+build/
+coverage/
+
+# Python / Notebooks (if mixed project)
+__pycache__/
+*.ipynb_checkpoints
+
+# OS-specific
+.DS_Store
+Thumbs.db
+desktop.ini
+
+# Rider and VS cache
+.idea/
+.vs/
+.vscode/
+*.user
+*.suo
+*.cache
+*.dbmdl
+*.bak
+
+# ==========================================
+# END
+# ==========================================
