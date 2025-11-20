@@ -1,0 +1,100 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema"
+           targetNamespace="http://www.example.com/greenhouse"
+           xmlns:tns="http://www.example.com/greenhouse"
+           elementFormDefault="qualified">
+
+    <xs:element name="Greenhouse">
+        <xs:complexType>
+            <xs:sequence>
+                <xs:element name="Flower" type="tns:Flower" minOccurs="0" maxOccurs="unbounded"/>
+            </xs:sequence>
+        </xs:complexType>
+    </xs:element>
+
+    <xs:complexType name="Flower">
+        <xs:sequence>
+            <xs:element name="Name" type="xs:string"/>
+            <xs:element name="Soil" type="tns:SoilType"/>
+            <xs:element name="Origin" type="xs:string"/>
+            <xs:element name="VisualParameters" type="tns:VisualParameters"/>
+            <xs:element name="GrowingTips" type="tns:GrowingTips"/>
+            <xs:element name="Multiplying" type="tns:MultiplyingType"/>
+        </xs:sequence>
+        <xs:attribute name="id" type="xs:ID" use="required"/>
+    </xs:complexType>
+
+    <xs:complexType name="VisualParameters">
+        <xs:sequence>
+            <xs:element name="StemColor" type="xs:string"/>
+            <xs:element name="LeafColor" type="xs:string"/>
+            <xs:element name="AverageSize" type="tns:Size"/>
+        </xs:sequence>
+    </xs:complexType>
+
+    <xs:complexType name="GrowingTips">
+        <xs:sequence>
+            <xs:element name="Temperature" type="tns:Temperature"/>
+            <xs:element name="Lighting">
+                <xs:complexType>
+                    <xs:attribute name="lightRequiring" type="xs:boolean" use="required"/>
+                </xs:complexType>
+            </xs:element>
+            <xs:element name="Watering" type="tns:Watering"/>
+        </xs:sequence>
+    </xs:complexType>
+
+    <xs:simpleType name="SoilType">
+        <xs:restriction base="xs:string">
+            <xs:enumeration value="підзолистий"/>
+            <xs:enumeration value="ґрунтовий"/>
+            <xs:enumeration value="дерново-підзолистий"/>
+        </xs:restriction>
+    </xs:simpleType>
+
+    <xs:simpleType name="MultiplyingType">
+        <xs:restriction base="xs:string">
+            <xs:enumeration value="листям"/>
+            <xs:enumeration value="живцями"/>
+            <xs:enumeration value="насінням"/>
+        </xs:restriction>
+    </xs:simpleType>
+
+    <xs:complexType name="Size">
+        <xs:simpleContent>
+            <xs:extension base="xs:double">
+                <xs:attribute name="unit" type="xs:string" use="required" fixed="cm"/>
+            </xs:extension>
+        </xs:simpleContent>
+    </xs:complexType>
+
+    <xs:complexType name="Temperature">
+        <xs:simpleContent>
+            <xs:extension base="tns:TempRange">
+                <xs:attribute name="unit" type="xs:string" use="required" fixed="celsius"/>
+            </xs:extension>
+        </xs:simpleContent>
+    </xs:complexType>
+
+    <xs:simpleType name="TempRange">
+        <xs:restriction base="xs:double">
+            <xs:minInclusive value="-10"/>
+            <xs:maxInclusive value="50"/>
+        </xs:restriction>
+    </xs:simpleType>
+
+    <xs:complexType name="Watering">
+        <xs:simpleContent>
+            <xs:extension base="tns:WaterRange">
+                <xs:attribute name="unit" type="xs:string" use="required" fixed="ml_per_week"/>
+            </xs:extension>
+        </xs:simpleContent>
+    </xs:complexType>
+
+    <xs:simpleType name="WaterRange">
+        <xs:restriction base="xs:int">
+            <xs:minInclusive value="0"/>
+        </xs:restriction>
+    </xs:simpleType>
+
+</xs:schema>
