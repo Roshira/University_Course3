@@ -1,0 +1,82 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema"
+           targetNamespace="http://www.example.com/candies"
+           xmlns:tns="http://www.example.com/candies"
+           elementFormDefault="qualified">
+
+    <xs:element name="Candies">
+        <xs:complexType>
+            <xs:sequence>
+                <xs:element name="Candy" type="tns:Candy" minOccurs="1" maxOccurs="unbounded"/>
+            </xs:sequence>
+        </xs:complexType>
+    </xs:element>
+
+    <xs:complexType name="Candy">
+        <xs:sequence>
+            <xs:element name="Name" type="tns:NameType"/>
+            <xs:element name="Energy" type="tns:EnergyType"/>
+            <xs:element name="Type" type="tns:CandyType"/>
+            <xs:element name="Ingredients" type="tns:IngredientsType"/>
+            <xs:element name="Value" type="tns:ValueType"/>
+        </xs:sequence>
+
+        <xs:attribute name="id" type="xs:ID" use="required"/>
+        <xs:attribute name="production" type="xs:string" use="required"/>
+    </xs:complexType>
+
+    <xs:simpleType name="NameType">
+        <xs:restriction base="xs:string">
+            <xs:pattern value="[a-zA-Z0-9\s\-]+"/>
+        </xs:restriction>
+    </xs:simpleType>
+
+    <xs:simpleType name="EnergyType">
+        <xs:restriction base="xs:int">
+            <xs:minInclusive value="100"/>
+            <xs:maxInclusive value="1000"/>
+        </xs:restriction>
+    </xs:simpleType>
+
+    <xs:simpleType name="CandyType">
+        <xs:restriction base="xs:string">
+            <xs:enumeration value="Caramel"/>
+            <xs:enumeration value="Toffee"/>
+            <xs:enumeration value="Chocolate"/>
+            <xs:enumeration value="ChocolateWithFilling"/>
+        </xs:restriction>
+    </xs:simpleType>
+
+    <xs:complexType name="IngredientsType">
+        <xs:sequence>
+            <xs:element name="Water" type="tns:PositiveInt"/>
+            <xs:element name="Sugar" type="tns:PositiveInt"/>
+            <xs:element name="Fructose" type="tns:PositiveInt"/>
+            <xs:element name="ChocolateType" type="tns:ChocolateType" minOccurs="0"/>
+            <xs:element name="Vanillin" type="tns:PositiveInt"/>
+        </xs:sequence>
+    </xs:complexType>
+
+    <xs:simpleType name="ChocolateType">
+        <xs:restriction base="xs:string">
+            <xs:enumeration value="Dark"/>
+            <xs:enumeration value="Milk"/>
+            <xs:enumeration value="White"/>
+        </xs:restriction>
+    </xs:simpleType>
+
+    <xs:complexType name="ValueType">
+        <xs:sequence>
+            <xs:element name="Proteins" type="tns:PositiveInt"/>
+            <xs:element name="Fats" type="tns:PositiveInt"/>
+            <xs:element name="Carbohydrates" type="tns:PositiveInt"/>
+        </xs:sequence>
+    </xs:complexType>
+
+    <xs:simpleType name="PositiveInt">
+        <xs:restriction base="xs:int">
+            <xs:minInclusive value="0"/>
+        </xs:restriction>
+    </xs:simpleType>
+
+</xs:schema>

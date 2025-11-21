@@ -1,0 +1,58 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<c:Candies xmlns:c="http://www.example.com/candies"
+           xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+           xsi:schemaLocation="http://www.example.com/candies candies.xsd">
+
+    <c:Candy id="id1" production="Roshen">
+        <c:Name>Red Poppy</c:Name>
+        <c:Energy>550</c:Energy>
+        <c:Type>ChocolateWithFilling</c:Type>
+        <c:Ingredients>
+            <c:Water>50</c:Water>
+            <c:Sugar>300</c:Sugar>
+            <c:Fructose>50</c:Fructose>
+            <c:ChocolateType>Dark</c:ChocolateType>
+            <c:Vanillin>10</c:Vanillin>
+        </c:Ingredients>
+        <c:Value>
+            <c:Proteins>5</c:Proteins>
+            <c:Fats>30</c:Fats>
+            <c:Carbohydrates>60</c:Carbohydrates>
+        </c:Value>
+    </c:Candy>
+
+    <c:Candy id="id2" production="Svitoch">
+        <c:Name>Korivka</c:Name>
+        <c:Energy>400</c:Energy>
+        <c:Type>Toffee</c:Type>
+        <c:Ingredients>
+            <c:Water>100</c:Water>
+            <c:Sugar>400</c:Sugar>
+            <c:Fructose>0</c:Fructose>
+            <c:Vanillin>20</c:Vanillin>
+        </c:Ingredients>
+        <c:Value>
+            <c:Proteins>2</c:Proteins>
+            <c:Fats>15</c:Fats>
+            <c:Carbohydrates>70</c:Carbohydrates>
+        </c:Value>
+    </c:Candy>
+    
+    <c:Candy id="id3" production="AVK">
+        <c:Name>Caramel Drops</c:Name>
+        <c:Energy>380</c:Energy>
+        <c:Type>Caramel</c:Type>
+        <c:Ingredients>
+            <c:Water>150</c:Water>
+            <c:Sugar>500</c:Sugar>
+            <c:Fructose>100</c:Fructose>
+            <c:Vanillin>5</c:Vanillin>
+        </c:Ingredients>
+        <c:Value>
+            <c:Proteins>0</c:Proteins>
+            <c:Fats>10</c:Fats>
+            <c:Carbohydrates>80</c:Carbohydrates>
+        </c:Value>
+    </c:Candy>
+
+</c:Candies>

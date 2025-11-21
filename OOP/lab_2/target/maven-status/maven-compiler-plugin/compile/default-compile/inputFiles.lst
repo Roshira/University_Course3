@@ -1,0 +1,17 @@
+D:\uni\3_cou\OOP\lab_2\src\main\java\lab\model\package-info.java
+D:\uni\3_cou\OOP\lab_2\src\main\java\lab\parser\JaxbParser.java
+D:\uni\3_cou\OOP\lab_2\src\main\java\lab\parser\StaxParser.java
+D:\uni\3_cou\OOP\lab_2\src\main\java\lab\util\XMLValidator.java
+D:\uni\3_cou\OOP\lab_2\src\main\java\lab\model\Candies.java
+D:\uni\3_cou\OOP\lab_2\src\main\java\lab\model\CandyType.java
+D:\uni\3_cou\OOP\lab_2\src\main\java\lab\App.java
+D:\uni\3_cou\OOP\lab_2\src\main\java\lab\parser\CandyParser.java
+D:\uni\3_cou\OOP\lab_2\src\main\java\lab\sorter\CandySorters.java
+D:\uni\3_cou\OOP\lab_2\src\main\java\lab\parser\DomParser.java
+D:\uni\3_cou\OOP\lab_2\src\main\java\lab\parser\SaxParser.java
+D:\uni\3_cou\OOP\lab_2\src\main\java\lab\model\Candy.java
+D:\uni\3_cou\OOP\lab_2\src\main\java\lab\model\ValueType.java
+D:\uni\3_cou\OOP\lab_2\src\main\java\lab\util\XMLTransformer.java
+D:\uni\3_cou\OOP\lab_2\src\main\java\lab\model\ChocolateType.java
+D:\uni\3_cou\OOP\lab_2\src\main\java\lab\model\IngredientsType.java
+D:\uni\3_cou\OOP\lab_2\src\main\java\lab\model\ObjectFactory.java

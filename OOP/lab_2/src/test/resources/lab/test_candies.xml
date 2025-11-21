@@ -1,0 +1,42 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<c:Candies xmlns:c="http://www.example.com/candies"
+           xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+           xsi:schemaLocation="http://www.example.com/candies ../../main/resources/lab/candies.xsd">
+
+    <c:Candy id="t1" production="TEST_FACTORY_A">
+        <c:Name>Test Toffee</c:Name>
+        <c:Energy>400</c:Energy>
+        <c:Type>Toffee</c:Type>
+        <c:Ingredients>
+            <c:Water>100</c:Water>
+            <c:Sugar>1000</c:Sugar>
+            <c:Fructose>100</c:Fructose>
+            <c:Vanillin>10</c:Vanillin>
+        </c:Ingredients>
+        <c:Value>
+            <c:Proteins>1</c:Proteins>
+            <c:Fats>10</c:Fats>
+            <c:Carbohydrates>80</c:Carbohydrates>
+        </c:Value>
+    </c:Candy>
+
+    <c:Candy id="t2" production="TEST_FACTORY_B">
+        <c:Name>Test Chocolate</c:Name>
+        <c:Energy>600</c:Energy>
+        <c:Type>ChocolateWithFilling</c:Type>
+        <c:Ingredients>
+            <c:Water>50</c:Water>
+            <c:Sugar>500</c:Sugar>
+            <c:Fructose>50</c:Fructose>
+            <c:ChocolateType>Dark</c:ChocolateType>
+            <c:Vanillin>20</c:Vanillin>
+        </c:Ingredients>
+        <c:Value>
+            <c:Proteins>5</c:Proteins>
+            <c:Fats>40</c:Fats>
+            <c:Carbohydrates>55</c:Carbohydrates>
+        </c:Value>
+    </c:Candy>
+
+</c:Candies>
+

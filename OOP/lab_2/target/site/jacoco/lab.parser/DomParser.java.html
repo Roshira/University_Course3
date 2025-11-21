@@ -1,0 +1,87 @@
+<?xml version="1.0" encoding="UTF-8"?><!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd"><html xmlns="http://www.w3.org/1999/xhtml" lang="uk"><head><meta http-equiv="Content-Type" content="text/html;charset=UTF-8"/><link rel="stylesheet" href="../jacoco-resources/report.css" type="text/css"/><link rel="shortcut icon" href="../jacoco-resources/report.gif" type="image/gif"/><title>DomParser.java</title><link rel="stylesheet" href="../jacoco-resources/prettify.css" type="text/css"/><script type="text/javascript" src="../jacoco-resources/prettify.js"></script></head><body onload="window['PR_TAB_WIDTH']=4;prettyPrint()"><div class="breadcrumb" id="breadcrumb"><span class="info"><a href="../jacoco-sessions.html" class="el_session">Sessions</a></span><a href="../index.html" class="el_report">lab_2</a> &gt; <a href="index.source.html" class="el_package">lab.parser</a> &gt; <span class="el_source">DomParser.java</span></div><h1>DomParser.java</h1><pre class="source lang-java linenums">package lab.parser;
+
+import java.io.File;
+import java.util.ArrayList;
+import java.util.List;
+
+import javax.xml.parsers.DocumentBuilder;
+import javax.xml.parsers.DocumentBuilderFactory;
+
+import org.w3c.dom.Document;
+import org.w3c.dom.Element;
+import org.w3c.dom.Node;
+import org.w3c.dom.NodeList;
+
+import lab.model.Candy;
+import lab.model.CandyType;
+import lab.model.ChocolateType;
+import lab.model.IngredientsType;
+import lab.model.ValueType;
+
+<span class="fc" id="L21">public class DomParser implements CandyParser {</span>
+    private static final String CANDY_NAMESPACE_URI = &quot;http://www.example.com/candies&quot;;
+
+    @Override
+    public List&lt;Candy&gt; parse(String xmlFilePath) throws Exception {
+<span class="fc" id="L26">        List&lt;Candy&gt; candies = new ArrayList&lt;&gt;();</span>
+        
+<span class="fc" id="L28">        DocumentBuilderFactory factory = DocumentBuilderFactory.newInstance();</span>
+        
+<span class="fc" id="L30">        factory.setNamespaceAware(true); </span>
+        
+<span class="fc" id="L32">        DocumentBuilder builder = factory.newDocumentBuilder();</span>
+<span class="fc" id="L33">        Document doc = builder.parse(new File(xmlFilePath));</span>
+<span class="fc" id="L34">        doc.getDocumentElement().normalize();</span>
+
+<span class="fc" id="L36">        NodeList candyNodes = doc.getElementsByTagNameNS(CANDY_NAMESPACE_URI, &quot;Candy&quot;);</span>
+
+<span class="fc bfc" id="L38" title="All 2 branches covered.">        for (int i = 0; i &lt; candyNodes.getLength(); i++) {</span>
+<span class="fc" id="L39">            Node node = candyNodes.item(i);</span>
+<span class="pc bpc" id="L40" title="1 of 2 branches missed.">            if (node.getNodeType() == Node.ELEMENT_NODE) {</span>
+<span class="fc" id="L41">                Element candyElement = (Element) node;</span>
+                
+<span class="fc" id="L43">                Candy candy = new Candy();</span>
+<span class="fc" id="L44">                candy.setId(candyElement.getAttribute(&quot;id&quot;));</span>
+<span class="fc" id="L45">                candy.setProduction(candyElement.getAttribute(&quot;production&quot;));</span>
+
+
+<span class="fc" id="L48">                candy.setName(getElementTextByTagName(candyElement, &quot;Name&quot;));</span>
+<span class="fc" id="L49">                candy.setEnergy(Integer.parseInt(getElementTextByTagName(candyElement, &quot;Energy&quot;)));</span>
+<span class="fc" id="L50">                candy.setType(CandyType.fromValue(getElementTextByTagName(candyElement, &quot;Type&quot;)));</span>
+
+<span class="fc" id="L52">                Element ingredientsEl = (Element) candyElement.getElementsByTagNameNS(CANDY_NAMESPACE_URI, &quot;Ingredients&quot;).item(0);</span>
+<span class="fc" id="L53">                IngredientsType ingredients = new IngredientsType();</span>
+<span class="fc" id="L54">                ingredients.setWater(Integer.parseInt(getElementTextByTagName(ingredientsEl, &quot;Water&quot;)));</span>
+<span class="fc" id="L55">                ingredients.setSugar(Integer.parseInt(getElementTextByTagName(ingredientsEl, &quot;Sugar&quot;)));</span>
+<span class="fc" id="L56">                ingredients.setFructose(Integer.parseInt(getElementTextByTagName(ingredientsEl, &quot;Fructose&quot;)));</span>
+<span class="fc" id="L57">                ingredients.setVanillin(Integer.parseInt(getElementTextByTagName(ingredientsEl, &quot;Vanillin&quot;)));</span>
+                
+<span class="fc" id="L59">                String chocoType = getElementTextByTagName(ingredientsEl, &quot;ChocolateType&quot;);</span>
+<span class="pc bpc" id="L60" title="1 of 4 branches missed.">                if (chocoType != null &amp;&amp; !chocoType.isEmpty()) {</span>
+<span class="fc" id="L61">                    ingredients.setChocolateType(ChocolateType.fromValue(chocoType));</span>
+                }
+<span class="fc" id="L63">                candy.setIngredients(ingredients);</span>
+
+<span class="fc" id="L65">                Element valueEl = (Element) candyElement.getElementsByTagNameNS(CANDY_NAMESPACE_URI, &quot;Value&quot;).item(0);</span>
+<span class="fc" id="L66">                ValueType value = new ValueType();</span>
+<span class="fc" id="L67">                value.setProteins(Integer.parseInt(getElementTextByTagName(valueEl, &quot;Proteins&quot;)));</span>
+<span class="fc" id="L68">                value.setFats(Integer.parseInt(getElementTextByTagName(valueEl, &quot;Fats&quot;)));</span>
+<span class="fc" id="L69">                value.setCarbohydrates(Integer.parseInt(getElementTextByTagName(valueEl, &quot;Carbohydrates&quot;)));</span>
+<span class="fc" id="L70">                candy.setValue(value);</span>
+                
+<span class="fc" id="L72">                candies.add(candy);</span>
+            }
+        }
+<span class="fc" id="L75">        return candies;</span>
+    }
+
+    private String getElementTextByTagName(Element parent, String localName) {
+<span class="fc" id="L79">        NodeList nodeList = parent.getElementsByTagNameNS(parent.getNamespaceURI(), localName);</span>
+<span class="fc bfc" id="L80" title="All 2 branches covered.">        if (nodeList.getLength() &gt; 0) {</span>
+<span class="fc" id="L81">            return nodeList.item(0).getTextContent();</span>
+        }
+<span class="fc" id="L83">        return &quot;&quot;; </span>
+    }
+}
+
+</pre><div class="footer"><span class="right">Created with <a href="http://www.jacoco.org/jacoco">JaCoCo</a> 0.8.8.202204050719</span></div></body></html>

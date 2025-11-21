@@ -1,0 +1,10 @@
+GROUP,PACKAGE,CLASS,INSTRUCTION_MISSED,INSTRUCTION_COVERED,BRANCH_MISSED,BRANCH_COVERED,LINE_MISSED,LINE_COVERED,COMPLEXITY_MISSED,COMPLEXITY_COVERED,METHOD_MISSED,METHOD_COVERED
+lab_2,lab.util,XMLValidator,3,32,0,0,1,8,1,1,1,1
+lab_2,lab.util,XMLTransformer,3,29,0,0,1,4,1,1,1,1
+lab_2,lab.parser,DomParser,0,198,2,8,0,40,2,6,0,3
+lab_2,lab.parser,SaxParser,0,28,0,0,0,7,0,2,0,2
+lab_2,lab.parser,JaxbParser,6,30,1,1,1,7,1,2,0,2
+lab_2,lab.parser,SaxParser.CandyHandler,1,172,4,25,0,47,4,22,0,5
+lab_2,lab.parser,StaxParser,0,230,5,39,0,62,5,26,0,2
+lab_2,lab,App,26,136,3,3,10,31,4,5,1,5
+lab_2,lab.sorter,CandySorters,3,9,0,0,1,3,1,3,1,3

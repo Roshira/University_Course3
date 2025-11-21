@@ -1,0 +1,122 @@
+<?xml version="1.0" encoding="UTF-8"?><!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd"><html xmlns="http://www.w3.org/1999/xhtml" lang="uk"><head><meta http-equiv="Content-Type" content="text/html;charset=UTF-8"/><link rel="stylesheet" href="../jacoco-resources/report.css" type="text/css"/><link rel="shortcut icon" href="../jacoco-resources/report.gif" type="image/gif"/><title>StaxParser.java</title><link rel="stylesheet" href="../jacoco-resources/prettify.css" type="text/css"/><script type="text/javascript" src="../jacoco-resources/prettify.js"></script></head><body onload="window['PR_TAB_WIDTH']=4;prettyPrint()"><div class="breadcrumb" id="breadcrumb"><span class="info"><a href="../jacoco-sessions.html" class="el_session">Sessions</a></span><a href="../index.html" class="el_report">lab_2</a> &gt; <a href="index.source.html" class="el_package">lab.parser</a> &gt; <span class="el_source">StaxParser.java</span></div><h1>StaxParser.java</h1><pre class="source lang-java linenums">package lab.parser;
+
+// Оновлено імпорти
+import lab.model.Candy;
+import lab.model.CandyType;
+import lab.model.ChocolateType;
+import lab.model.IngredientsType; // Змінено
+import lab.model.ValueType;       // Змінено
+
+import javax.xml.stream.XMLEventReader;
+import javax.xml.stream.XMLInputFactory;
+import javax.xml.stream.events.Attribute;
+import javax.xml.stream.events.EndElement;
+import javax.xml.stream.events.StartElement;
+import javax.xml.stream.events.XMLEvent;
+import java.io.FileInputStream;
+import java.util.ArrayList;
+import java.util.Iterator;
+import java.util.List;
+
+<span class="fc" id="L21">public class StaxParser implements CandyParser {</span>
+
+    @Override
+    public List&lt;Candy&gt; parse(String xmlFilePath) throws Exception {
+<span class="fc" id="L25">        List&lt;Candy&gt; candies = new ArrayList&lt;&gt;();</span>
+<span class="fc" id="L26">        Candy currentCandy = null;</span>
+<span class="fc" id="L27">        IngredientsType currentIngredients = null; </span>
+<span class="fc" id="L28">        ValueType currentValue = null;      </span>
+<span class="fc" id="L29">        String currentTagName = null;</span>
+
+<span class="fc" id="L31">        XMLInputFactory factory = XMLInputFactory.newInstance();</span>
+
+<span class="fc" id="L33">        factory.setProperty(XMLInputFactory.IS_SUPPORTING_EXTERNAL_ENTITIES, false);</span>
+
+<span class="fc" id="L35">        factory.setProperty(XMLInputFactory.SUPPORT_DTD, false);</span>
+
+<span class="fc" id="L37">        XMLEventReader eventReader = factory.createXMLEventReader(new FileInputStream(xmlFilePath));</span>
+
+<span class="fc bfc" id="L39" title="All 2 branches covered.">        while (eventReader.hasNext()) {</span>
+<span class="fc" id="L40">            XMLEvent event = eventReader.nextEvent();</span>
+
+<span class="fc bfc" id="L42" title="All 2 branches covered.">            if (event.isStartElement()) {</span>
+<span class="fc" id="L43">                StartElement startElement = event.asStartElement();</span>
+<span class="fc" id="L44">                currentTagName = startElement.getName().getLocalPart();</span>
+
+<span class="fc bfc" id="L46" title="All 4 branches covered.">                switch (currentTagName) {</span>
+                    case &quot;Candy&quot;:
+<span class="fc" id="L48">                        currentCandy = new Candy();</span>
+
+<span class="fc" id="L50">                        Iterator&lt;Attribute&gt; attributes = startElement.getAttributes();</span>
+<span class="fc bfc" id="L51" title="All 2 branches covered.">                        while (attributes.hasNext()) {</span>
+<span class="fc" id="L52">                            Attribute attribute = attributes.next();</span>
+<span class="fc" id="L53">                            String attrName = attribute.getName().getLocalPart();</span>
+<span class="fc bfc" id="L54" title="All 2 branches covered.">                            if (&quot;id&quot;.equals(attrName)) {</span>
+<span class="fc" id="L55">                                currentCandy.setId(attribute.getValue());</span>
+<span class="pc bpc" id="L56" title="1 of 2 branches missed.">                            } else if (&quot;production&quot;.equals(attrName)) {</span>
+<span class="fc" id="L57">                                currentCandy.setProduction(attribute.getValue());</span>
+                            }
+
+<span class="fc" id="L60">                        }</span>
+                        break;
+                    case &quot;Ingredients&quot;:
+<span class="fc" id="L63">                        currentIngredients = new IngredientsType();</span>
+<span class="fc" id="L64">                        break;</span>
+                    case &quot;Value&quot;:
+<span class="fc" id="L66">                        currentValue = new ValueType(); </span>
+                        break;
+
+                }
+<span class="fc bfc" id="L70" title="All 4 branches covered.">            } else if (event.isCharacters() &amp;&amp; currentTagName != null) {</span>
+<span class="fc" id="L71">                String content = event.asCharacters().getData().trim();</span>
+<span class="fc bfc" id="L72" title="All 2 branches covered.">                if (content.isEmpty()) {</span>
+<span class="fc" id="L73">                    continue;</span>
+                }
+
+<span class="pc bpc" id="L76" title="1 of 12 branches missed.">                switch (currentTagName) {</span>
+<span class="fc" id="L77">                    case &quot;Name&quot;: currentCandy.setName(content); break;</span>
+<span class="fc" id="L78">                    case &quot;Energy&quot;: currentCandy.setEnergy(Integer.parseInt(content)); break;</span>
+<span class="fc" id="L79">                    case &quot;Type&quot;: currentCandy.setType(CandyType.fromValue(content)); break;</span>
+                    
+<span class="fc" id="L81">                    case &quot;Water&quot;: currentIngredients.setWater(Integer.parseInt(content)); break;</span>
+<span class="fc" id="L82">                    case &quot;Sugar&quot;: currentIngredients.setSugar(Integer.parseInt(content)); break;</span>
+<span class="fc" id="L83">                    case &quot;Fructose&quot;: currentIngredients.setFructose(Integer.parseInt(content)); break;</span>
+                    case &quot;ChocolateType&quot;: 
+
+<span class="pc bpc" id="L86" title="3 of 6 branches missed.">                        if (currentIngredients != null &amp;&amp; content != null &amp;&amp; !content.isEmpty()) {</span>
+<span class="fc" id="L87">                             currentIngredients.setChocolateType(ChocolateType.fromValue(content)); </span>
+                        }
+                        break;
+<span class="fc" id="L90">                    case &quot;Vanillin&quot;: currentIngredients.setVanillin(Integer.parseInt(content)); break;</span>
+
+<span class="fc" id="L92">                    case &quot;Proteins&quot;: currentValue.setProteins(Integer.parseInt(content)); break;</span>
+<span class="fc" id="L93">                    case &quot;Fats&quot;: currentValue.setFats(Integer.parseInt(content)); break;</span>
+<span class="fc" id="L94">                    case &quot;Carbohydrates&quot;: currentValue.setCarbohydrates(Integer.parseInt(content)); break; // Змінено</span>
+                }
+<span class="fc bfc" id="L96" title="All 2 branches covered.">            } else if (event.isEndElement()) {</span>
+<span class="fc" id="L97">                EndElement endElement = event.asEndElement();</span>
+<span class="fc" id="L98">                String endTagName = endElement.getName().getLocalPart();</span>
+
+<span class="fc bfc" id="L100" title="All 4 branches covered.">                switch (endTagName) {</span>
+                    case &quot;Candy&quot;:
+<span class="fc" id="L102">                        candies.add(currentCandy);</span>
+<span class="fc" id="L103">                        currentCandy = null;</span>
+<span class="fc" id="L104">                        break;</span>
+                    case &quot;Ingredients&quot;:
+<span class="fc" id="L106">                        currentCandy.setIngredients(currentIngredients);</span>
+<span class="fc" id="L107">                        currentIngredients = null;</span>
+<span class="fc" id="L108">                        break;</span>
+                    case &quot;Value&quot;:
+<span class="fc" id="L110">                        currentCandy.setValue(currentValue);</span>
+<span class="fc" id="L111">                        currentValue = null;</span>
+                        break;
+                }
+<span class="fc" id="L114">                currentTagName = null;</span>
+            }
+<span class="fc" id="L116">        }</span>
+<span class="fc" id="L117">        eventReader.close();</span>
+<span class="fc" id="L118">        return candies;</span>
+    }
+}
+
+</pre><div class="footer"><span class="right">Created with <a href="http://www.jacoco.org/jacoco">JaCoCo</a> 0.8.8.202204050719</span></div></body></html>
