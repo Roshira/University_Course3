@@ -67,7 +67,7 @@ public class Manager {
                                 calculationFinished = true;
                                 break;
                             }
-                            Thread.sleep(50);
+                            Thread.sleep(10);
                         }
 
                         // Оновлюємо таймер: додаємо час, який ми щойно прочекали
