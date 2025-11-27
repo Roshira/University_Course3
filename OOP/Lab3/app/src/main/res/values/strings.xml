@@ -1,5 +1,11 @@
 <resources>
     <string name="app_name">Maze Game</string>
     <string name="win_message">You Won!</string>
-    <string name="restart_game">New Game</string>
+    <string name="restart_game">Restart</string>
+    <string name="auto_solve">Auto Solve</string>
+    <string name="change_lang">UA</string>
+    <string name="back_to_menu">Menu</string> <string name="menu_title">MAZE GAME</string>
+    <string name="start_levels">START (LEVELS)</string>
+    <string name="random_map">RANDOM MAP</string>
+    <string name="exit_app">EXIT</string>
 </resources>

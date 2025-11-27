@@ -1,5 +1,11 @@
 <resources>
     <string name="app_name">Гра Лабіринт</string>
     <string name="win_message">Ви перемогли!</string>
-    <string name="restart_game">Нова гра</string>
+    <string name="restart_game">Спочатку</string>
+    <string name="auto_solve">Авто-проходження</string>
+    <string name="change_lang">EN</string>
+    <string name="back_to_menu">Меню</string> <string name="menu_title">ЛАБІРИНТ</string>
+    <string name="start_levels">СТАРТ (РІВНІ)</string>
+    <string name="random_map">ВИПАДКОВА МАПА</string>
+    <string name="exit_app">ВИХІД</string>
 </resources>

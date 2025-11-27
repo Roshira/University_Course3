@@ -1,18 +1,39 @@
 package com.example.mazegame
 
 import java.util.Stack
-import kotlin.random.Random
+import java.util.Random // Використовуємо Java Random для фіксації рівнів
 
-class GameManager( val cols: Int, val rows: Int) {
+class GameManager(val cols: Int, val rows: Int) {
     val cells = Array(cols) { col -> Array(rows) { row -> Cell(col, row) } }
     var player = cells[0][0]
     private val exit = cells[cols - 1][rows - 1]
 
-    init {
-        generateMaze()
+    // Змінна для генератора
+    private var random = Random()
+
+    // --- ЗМІНА: Метод для старту гри з конкретним seed ---
+    fun generateMap(seed: Long?) {
+        // Скидаємо клітинки
+        for (x in 0 until cols) {
+            for (y in 0 until rows) {
+                cells[x][y] = Cell(x, y)
+            }
+        }
+        player = cells[0][0]
+
+        // Якщо seed передали - використовуємо його (рівень буде фіксований)
+        // Якщо null - генеруємо випадковий час (рівень буде випадковий)
+        if (seed != null) {
+            random = Random(seed)
+        } else {
+            random = Random()
+        }
+
+        generateMazeAlgorithm()
     }
 
-    private fun generateMaze() {
+    // Перейменував старий метод, щоб не плутатись
+    private fun generateMazeAlgorithm() {
         val stack = Stack<Cell>()
         var current = cells[0][0]
         current.visited = true
@@ -32,15 +53,17 @@ class GameManager( val cols: Int, val rows: Int) {
 
     private fun getRandomUnvisitedNeighbor(cell: Cell): Cell? {
         val neighbors = ArrayList<Cell>()
-
-        // Перевірка сусідів (Left, Right, Top, Bottom)
+        // Тут замінили Random.nextInt на random.nextInt (наш об'єкт)
         if (cell.col > 0 && !cells[cell.col - 1][cell.row].visited) neighbors.add(cells[cell.col - 1][cell.row])
         if (cell.col < cols - 1 && !cells[cell.col + 1][cell.row].visited) neighbors.add(cells[cell.col + 1][cell.row])
         if (cell.row > 0 && !cells[cell.col][cell.row - 1].visited) neighbors.add(cells[cell.col][cell.row - 1])
         if (cell.row < rows - 1 && !cells[cell.col][cell.row + 1].visited) neighbors.add(cells[cell.col][cell.row + 1])
 
-        return if (neighbors.isNotEmpty()) neighbors[Random.nextInt(neighbors.size)] else null
+        return if (neighbors.isNotEmpty()) neighbors[random.nextInt(neighbors.size)] else null
     }
+
+    // ... (Решта методів: removeWall, movePlayer, isWin, findPath - ЗАЛИШАЮТЬСЯ БЕЗ ЗМІН) ...
+    // Скопіюйте їх зі старого файлу, там нічого міняти не треба.
 
     private fun removeWall(current: Cell, next: Cell) {
         if (current.col == next.col && current.row == next.row + 1) {
@@ -78,77 +101,27 @@ class GameManager( val cols: Int, val rows: Int) {
 
     fun findPath(): List<Cell> {
         val start = player
-        val target = cells[cols - 1][rows - 1] // Вихід
-
-        // Черга для перевірки клітинок
+        val target = cells[cols - 1][rows - 1]
         val queue = java.util.LinkedList<Cell>()
         queue.add(start)
-
-        // Словник, щоб пам'ятати, звідки ми прийшли в кожну клітинку
-        // (щоб потім відновити шлях назад)
         val cameFrom = HashMap<Cell, Cell?>()
         cameFrom[start] = null
-
         val visited = HashSet<Cell>()
         visited.add(start)
-
         while (queue.isNotEmpty()) {
             val current = queue.poll()
-
-            // Якщо дійшли до фінішу - зупиняємось
-            if (current == target) {
-                break
-            }
-
-            // Перевіряємо сусідів
-            // (Логіка: якщо немає стіни І сусід не відвіданий -> додаємо в чергу)
-
-            // ВЕРХ
-            if (!current.topWall) {
-                val next = cells[current.col][current.row - 1]
-                if (!visited.contains(next)) {
-                    queue.add(next)
-                    visited.add(next)
-                    cameFrom[next] = current
-                }
-            }
-            // НИЗ
-            if (!current.bottomWall) {
-                val next = cells[current.col][current.row + 1]
-                if (!visited.contains(next)) {
-                    queue.add(next)
-                    visited.add(next)
-                    cameFrom[next] = current
-                }
-            }
-            // ЛІВО
-            if (!current.leftWall) {
-                val next = cells[current.col - 1][current.row]
-                if (!visited.contains(next)) {
-                    queue.add(next)
-                    visited.add(next)
-                    cameFrom[next] = current
-                }
-            }
-            // ПРАВО
-            if (!current.rightWall) {
-                val next = cells[current.col + 1][current.row]
-                if (!visited.contains(next)) {
-                    queue.add(next)
-                    visited.add(next)
-                    cameFrom[next] = current
-                }
-            }
+            if (current == target) break
+            if (!current.topWall) { val next = cells[current.col][current.row - 1]; if (!visited.contains(next)) { queue.add(next); visited.add(next); cameFrom[next] = current }}
+            if (!current.bottomWall) { val next = cells[current.col][current.row + 1]; if (!visited.contains(next)) { queue.add(next); visited.add(next); cameFrom[next] = current }}
+            if (!current.leftWall) { val next = cells[current.col - 1][current.row]; if (!visited.contains(next)) { queue.add(next); visited.add(next); cameFrom[next] = current }}
+            if (!current.rightWall) { val next = cells[current.col + 1][current.row]; if (!visited.contains(next)) { queue.add(next); visited.add(next); cameFrom[next] = current }}
         }
-
-        // Відновлюємо шлях від фінішу до старту
         val path = ArrayList<Cell>()
         var curr: Cell? = target
         while (curr != null && curr != start) {
             path.add(curr)
             curr = cameFrom[curr]
         }
-        // Перевертаємо, щоб шлях йшов від старту до фінішу
         path.reverse()
         return path
     }

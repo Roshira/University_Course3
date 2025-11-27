@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:gravity="center"
+    android:orientation="vertical"
+    android:background="@drawable/bg_maze">
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="ОБЕРІТЬ РІВЕНЬ"
+        android:textColor="@android:color/white"
+        android:textSize="30sp"
+        android:layout_marginBottom="30dp"/>
+
+    <Button android:id="@+id/btnLvl1" android:text="Рівень 1" android:layout_width="200dp" android:layout_height="wrap_content"/>
+    <Button android:id="@+id/btnLvl2" android:text="Рівень 2" android:layout_width="200dp" android:layout_height="wrap_content"/>
+    <Button android:id="@+id/btnLvl3" android:text="Рівень 3" android:layout_width="200dp" android:layout_height="wrap_content"/>
+    <Button android:id="@+id/btnLvl4" android:text="Рівень 4" android:layout_width="200dp" android:layout_height="wrap_content"/>
+    <Button android:id="@+id/btnLvl5" android:text="Рівень 5" android:layout_width="200dp" android:layout_height="wrap_content"/>
+
+    <Button
+        android:id="@+id/btnBack"
+        android:text="Назад"
+        android:layout_marginTop="30dp"
+        android:layout_width="200dp"
+        android:layout_height="wrap_content"/>
+
+</LinearLayout>
