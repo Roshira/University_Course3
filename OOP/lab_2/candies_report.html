@@ -1,27 +1,80 @@
-<html xmlns:c="http://www.example.com/candies">
-    <head>
-        <META http-equiv="Content-Type" content="text/html; charset=UTF-8">
-        <title>Candies List</title>
-        <style>
-                    table, th, td { border: 1px solid black; border-collapse: collapse; }
-                    th, td { padding: 8px; text-align: left;}
-                </style>
-    </head>
-    <body>
-        <h2>Candies Catalogue</h2>
-        <table>
-            <tr style="background-color:#f2f2f2;">
-                <th>ID</th><th>Name</th><th>Energy (kcal)</th><th>Type</th><th>Production</th>
-            </tr>
-            <tr>
-                <td>id1</td><td>Red Poppy</td><td>550</td><td>ChocolateWithFilling</td><td>Roshen</td>
-            </tr>
-            <tr>
-                <td>id2</td><td>Korivka</td><td>400</td><td>Toffee</td><td>Svitoch</td>
-            </tr>
-            <tr>
-                <td>id3</td><td>Caramel Drops</td><td>380</td><td>Caramel</td><td>AVK</td>
-            </tr>
-        </table>
-    </body>
-</html>
+<?xml version="1.0" encoding="UTF-8"?><CategorizedCandies xmlns:c="http://www.example.com/candies">
+    <CandyGroup type="Caramel">
+        <Candy>
+            <Name>Caramel Drops</Name>
+            <Energy>380</Energy>
+            <Production>AVK</Production>
+        </Candy>
+        <Candy>
+            <Name>Caramel Swirl</Name>
+            <Energy>280</Energy>
+            <Production>Roshen</Production>
+        </Candy>
+    </CandyGroup>
+    <CandyGroup type="Chocolate">
+        <Candy>
+            <Name>Milk Chocolate Bar</Name>
+            <Energy>520</Energy>
+            <Production>Conti</Production>
+        </Candy>
+        <Candy>
+            <Name>White Dream</Name>
+            <Energy>480</Energy>
+            <Production>Millavitsa</Production>
+        </Candy>
+    </CandyGroup>
+    <CandyGroup type="ChocolateWithFilling">
+        <Candy>
+            <Name>Red Poppy</Name>
+            <Energy>550</Energy>
+            <Production>Roshen</Production>
+        </Candy>
+    </CandyGroup>
+    <CandyGroup type="Toffee">
+        <Candy>
+            <Name>Korivka</Name>
+            <Energy>400</Energy>
+            <Production>Svitoch</Production>
+        </Candy>
+    </CandyGroup>
+    <ProductionGroup production="AVK">
+        <Candy>
+            <Name>Caramel Drops</Name>
+            <Type>Caramel</Type>
+            <Energy>380</Energy>
+        </Candy>
+    </ProductionGroup>
+    <ProductionGroup production="Conti">
+        <Candy>
+            <Name>Milk Chocolate Bar</Name>
+            <Type>Chocolate</Type>
+            <Energy>520</Energy>
+        </Candy>
+    </ProductionGroup>
+    <ProductionGroup production="Millavitsa">
+        <Candy>
+            <Name>White Dream</Name>
+            <Type>Chocolate</Type>
+            <Energy>480</Energy>
+        </Candy>
+    </ProductionGroup>
+    <ProductionGroup production="Roshen">
+        <Candy>
+            <Name>Red Poppy</Name>
+            <Type>ChocolateWithFilling</Type>
+            <Energy>550</Energy>
+        </Candy>
+        <Candy>
+            <Name>Caramel Swirl</Name>
+            <Type>Caramel</Type>
+            <Energy>280</Energy>
+        </Candy>
+    </ProductionGroup>
+    <ProductionGroup production="Svitoch">
+        <Candy>
+            <Name>Korivka</Name>
+            <Type>Toffee</Type>
+            <Energy>400</Energy>
+        </Candy>
+    </ProductionGroup>
+</CategorizedCandies>

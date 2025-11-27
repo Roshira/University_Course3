@@ -1,41 +1,45 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<xsl:stylesheet version="1.0" 
+<xsl:stylesheet version="1.0"
                 xmlns:xsl="http://www.w3.org/1999/XSL/Transform"
                 xmlns:c="http://www.example.com/candies">
-    <xsl:output method="html" indent="yes"/>
+    <xsl:output method="xml" indent="yes"/>
 
     <xsl:template match="/">
-        <html>
-            <head>
-                <title>Candies List</title>
-                <style>
-                    table, th, td { border: 1px solid black; border-collapse: collapse; }
-                    th, td { padding: 8px; text-align: left;}
-                </style>
-            </head>
-            <body>
-                <h2>Candies Catalogue</h2>
-                <table>
-                    <tr style="background-color:#f2f2f2;">
-                        <th>ID</th>
-                        <th>Name</th>
-                        <th>Energy (kcal)</th>
-                        <th>Type</th>
-                        <th>Production</th>
-                    </tr>
-                    <xsl:apply-templates select="c:Candies/c:Candy"/>
-                </table>
-            </body>
-        </html>
+        <CategorizedCandies>
+            <!-- Групування за типом цукерки -->
+            <xsl:for-each select="//c:Candy[generate-id() = generate-id(key('type-key', c:Type)[1])]">
+                <xsl:sort select="c:Type"/>
+                <xsl:variable name="currentType" select="c:Type"/>
+
+                <CandyGroup type="{$currentType}">
+                    <xsl:for-each select="//c:Candy[c:Type = $currentType]">
+                        <Candy>
+                            <Name><xsl:value-of select="c:Name"/></Name>
+                            <Energy><xsl:value-of select="c:Energy"/></Energy>
+                            <Production><xsl:value-of select="@production"/></Production>
+                        </Candy>
+                    </xsl:for-each>
+                </CandyGroup>
+            </xsl:for-each>
+
+            <!-- Групування за виробником -->
+            <xsl:for-each select="//c:Candy[generate-id() = generate-id(key('production-key', @production)[1])]">
+                <xsl:sort select="@production"/>
+                <xsl:variable name="currentProduction" select="@production"/>
+
+                <ProductionGroup production="{$currentProduction}">
+                    <xsl:for-each select="//c:Candy[@production = $currentProduction]">
+                        <Candy>
+                            <Name><xsl:value-of select="c:Name"/></Name>
+                            <Type><xsl:value-of select="c:Type"/></Type>
+                            <Energy><xsl:value-of select="c:Energy"/></Energy>
+                        </Candy>
+                    </xsl:for-each>
+                </ProductionGroup>
+            </xsl:for-each>
+        </CategorizedCandies>
     </xsl:template>
 
-    <xsl:template match="c:Candy">
-        <tr>
-            <td><xsl:value-of select="@id"/></td>
-            <td><xsl:value-of select="c:Name"/></td>
-            <td><xsl:value-of select="c:Energy"/></td>
-            <td><xsl:value-of select="c:Type"/></td>
-            <td><xsl:value-of select="@production"/></td>
-        </tr>
-    </xsl:template>
+    <xsl:key name="type-key" match="c:Candy" use="c:Type"/>
+    <xsl:key name="production-key" match="c:Candy" use="@production"/>
 </xsl:stylesheet>

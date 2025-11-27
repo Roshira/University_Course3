@@ -55,4 +55,56 @@
         </c:Value>
     </c:Candy>
 
+    <c:Candy id="id4" production="Conti">
+        <c:Name>Milk Chocolate Bar</c:Name>
+        <c:Energy>520</c:Energy>
+        <c:Type>Chocolate</c:Type>
+        <c:Ingredients>
+            <c:Water>20</c:Water>
+            <c:Sugar>350</c:Sugar>
+            <c:Fructose>50</c:Fructose>
+            <c:ChocolateType>Milk</c:ChocolateType>
+            <c:Vanillin>15</c:Vanillin>
+        </c:Ingredients>
+        <c:Value>
+            <c:Proteins>8</c:Proteins>
+            <c:Fats>25</c:Fats>
+            <c:Carbohydrates>65</c:Carbohydrates>
+        </c:Value>
+    </c:Candy>
+
+    <c:Candy id="id5" production="Roshen">
+        <c:Name>Caramel Swirl</c:Name>
+        <c:Energy>280</c:Energy>
+        <c:Type>Caramel</c:Type>
+        <c:Ingredients>
+            <c:Water>80</c:Water>
+            <c:Sugar>450</c:Sugar>
+            <c:Fructose>80</c:Fructose>
+            <c:Vanillin>8</c:Vanillin>
+        </c:Ingredients>
+        <c:Value>
+            <c:Proteins>1</c:Proteins>
+            <c:Fats>5</c:Fats>
+            <c:Carbohydrates>85</c:Carbohydrates>
+        </c:Value>
+    </c:Candy>
+
+    <c:Candy id="id6" production="Millavitsa">
+        <c:Name>White Dream</c:Name>
+        <c:Energy>480</c:Energy>
+        <c:Type>Chocolate</c:Type>
+        <c:Ingredients>
+            <c:Water>25</c:Water>
+            <c:Sugar>320</c:Sugar>
+            <c:Fructose>40</c:Fructose>
+            <c:ChocolateType>White</c:ChocolateType>
+            <c:Vanillin>12</c:Vanillin>
+        </c:Ingredients>
+        <c:Value>
+            <c:Proteins>6</c:Proteins>
+            <c:Fats>28</c:Fats>
+            <c:Carbohydrates>58</c:Carbohydrates>
+        </c:Value>
+    </c:Candy>
 </c:Candies>

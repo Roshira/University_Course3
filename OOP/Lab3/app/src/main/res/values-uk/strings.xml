@@ -1,0 +1,5 @@
+<resources>
+    <string name="app_name">Гра Лабіринт</string>
+    <string name="win_message">Ви перемогли!</string>
+    <string name="restart_game">Нова гра</string>
+</resources>

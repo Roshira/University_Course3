@@ -1,0 +1,191 @@
+<?xml version="1.0" encoding="UTF-8"?><CategorizedCandies xmlns:c="http://www.example.com/candies" xmlns="http://www.example.com/candies">
+    <!--Групування за типом цукерок-->
+    <CandyTypes>
+        <CandyType type="Caramel">
+            <Candy id="id3" production="AVK">
+                <Name>Caramel Drops</Name>
+                <Energy>380</Energy>
+                <Ingredients>
+                    <Water>150</Water>
+                    <Sugar>500</Sugar>
+                    <Fructose>100</Fructose>
+                    <Vanillin>5</Vanillin>
+                </Ingredients>
+                <Value>
+                    <Proteins>0</Proteins>
+                    <Fats>10</Fats>
+                    <Carbohydrates>80</Carbohydrates>
+                </Value>
+            </Candy>
+            <Candy id="id5" production="Roshen">
+                <Name>Caramel Swirl</Name>
+                <Energy>280</Energy>
+                <Ingredients>
+                    <Water>80</Water>
+                    <Sugar>450</Sugar>
+                    <Fructose>80</Fructose>
+                    <Vanillin>8</Vanillin>
+                </Ingredients>
+                <Value>
+                    <Proteins>1</Proteins>
+                    <Fats>5</Fats>
+                    <Carbohydrates>85</Carbohydrates>
+                </Value>
+            </Candy>
+        </CandyType>
+        <CandyType type="Chocolate">
+            <Candy id="id4" production="Conti">
+                <Name>Milk Chocolate Bar</Name>
+                <Energy>520</Energy>
+                <Ingredients>
+                    <Water>20</Water>
+                    <Sugar>350</Sugar>
+                    <Fructose>50</Fructose>
+                    <ChocolateType>Milk</ChocolateType>
+                    <Vanillin>15</Vanillin>
+                </Ingredients>
+                <Value>
+                    <Proteins>8</Proteins>
+                    <Fats>25</Fats>
+                    <Carbohydrates>65</Carbohydrates>
+                </Value>
+            </Candy>
+            <Candy id="id6" production="Millavitsa">
+                <Name>White Dream</Name>
+                <Energy>480</Energy>
+                <Ingredients>
+                    <Water>25</Water>
+                    <Sugar>320</Sugar>
+                    <Fructose>40</Fructose>
+                    <ChocolateType>White</ChocolateType>
+                    <Vanillin>12</Vanillin>
+                </Ingredients>
+                <Value>
+                    <Proteins>6</Proteins>
+                    <Fats>28</Fats>
+                    <Carbohydrates>58</Carbohydrates>
+                </Value>
+            </Candy>
+        </CandyType>
+        <CandyType type="ChocolateWithFilling">
+            <Candy id="id1" production="Roshen">
+                <Name>Red Poppy</Name>
+                <Energy>550</Energy>
+                <Ingredients>
+                    <Water>50</Water>
+                    <Sugar>300</Sugar>
+                    <Fructose>50</Fructose>
+                    <ChocolateType>Dark</ChocolateType>
+                    <Vanillin>10</Vanillin>
+                </Ingredients>
+                <Value>
+                    <Proteins>5</Proteins>
+                    <Fats>30</Fats>
+                    <Carbohydrates>60</Carbohydrates>
+                </Value>
+            </Candy>
+        </CandyType>
+        <CandyType type="Toffee">
+            <Candy id="id2" production="Svitoch">
+                <Name>Korivka</Name>
+                <Energy>400</Energy>
+                <Ingredients>
+                    <Water>100</Water>
+                    <Sugar>400</Sugar>
+                    <Fructose>0</Fructose>
+                    <Vanillin>20</Vanillin>
+                </Ingredients>
+                <Value>
+                    <Proteins>2</Proteins>
+                    <Fats>15</Fats>
+                    <Carbohydrates>70</Carbohydrates>
+                </Value>
+            </Candy>
+        </CandyType>
+    </CandyTypes>
+    <!--Групування за виробником-->
+    <Productions>
+        <Production name="AVK">
+            <Candy id="id3">
+                <Name>Caramel Drops</Name>
+                <Type>Caramel</Type>
+                <Energy>380</Energy>
+            </Candy>
+        </Production>
+        <Production name="Conti">
+            <Candy id="id4">
+                <Name>Milk Chocolate Bar</Name>
+                <Type>Chocolate</Type>
+                <Energy>520</Energy>
+                <Chocolate>Milk</Chocolate>
+            </Candy>
+        </Production>
+        <Production name="Millavitsa">
+            <Candy id="id6">
+                <Name>White Dream</Name>
+                <Type>Chocolate</Type>
+                <Energy>480</Energy>
+                <Chocolate>White</Chocolate>
+            </Candy>
+        </Production>
+        <Production name="Roshen">
+            <Candy id="id1">
+                <Name>Red Poppy</Name>
+                <Type>ChocolateWithFilling</Type>
+                <Energy>550</Energy>
+                <Chocolate>Dark</Chocolate>
+            </Candy>
+            <Candy id="id5">
+                <Name>Caramel Swirl</Name>
+                <Type>Caramel</Type>
+                <Energy>280</Energy>
+            </Candy>
+        </Production>
+        <Production name="Svitoch">
+            <Candy id="id2">
+                <Name>Korivka</Name>
+                <Type>Toffee</Type>
+                <Energy>400</Energy>
+            </Candy>
+        </Production>
+    </Productions>
+    <!--Статистика за енергетичною цінністю-->
+    <EnergyGroups>
+        <LowEnergy group="low" max="300">
+            <Candy id="id5">
+                <Name>Caramel Swirl</Name>
+                <Energy>280</Energy>
+                <Type>Caramel</Type>
+            </Candy>
+        </LowEnergy>
+        <MediumEnergy group="medium" min="301" max="500">
+            <Candy id="id2">
+                <Name>Korivka</Name>
+                <Energy>400</Energy>
+                <Type>Toffee</Type>
+            </Candy>
+            <Candy id="id3">
+                <Name>Caramel Drops</Name>
+                <Energy>380</Energy>
+                <Type>Caramel</Type>
+            </Candy>
+            <Candy id="id6">
+                <Name>White Dream</Name>
+                <Energy>480</Energy>
+                <Type>Chocolate</Type>
+            </Candy>
+        </MediumEnergy>
+        <HighEnergy group="high" min="501">
+            <Candy id="id1">
+                <Name>Red Poppy</Name>
+                <Energy>550</Energy>
+                <Type>ChocolateWithFilling</Type>
+            </Candy>
+            <Candy id="id4">
+                <Name>Milk Chocolate Bar</Name>
+                <Energy>520</Energy>
+                <Type>Chocolate</Type>
+            </Candy>
+        </HighEnergy>
+    </EnergyGroups>
+</CategorizedCandies>
