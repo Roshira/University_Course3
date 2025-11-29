@@ -63,7 +63,6 @@ class GameManager(val cols: Int, val rows: Int) {
     }
 
     // ... (Решта методів: removeWall, movePlayer, isWin, findPath - ЗАЛИШАЮТЬСЯ БЕЗ ЗМІН) ...
-    // Скопіюйте їх зі старого файлу, там нічого міняти не треба.
 
     private fun removeWall(current: Cell, next: Cell) {
         if (current.col == next.col && current.row == next.row + 1) {
