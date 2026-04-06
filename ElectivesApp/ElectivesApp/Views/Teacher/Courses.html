@@ -1,0 +1,69 @@
+﻿<!DOCTYPE html>
+<html lang="uk">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>{{title}} — Факультативи</title>
+    <link rel="stylesheet" href="/static/css/style.css">
+</head>
+<body>
+    <header class="header">
+        <div class="header__inner">
+            <span class="header__logo">🎓 Факультативи</span>
+            <nav class="header__nav">
+                <a href="/teacher/courses" class="header__link header__link--active">Мої курси</a>
+                <span class="header__user">👨‍🏫 {{username}}</span>
+                <a href="/logout" class="btn btn--outline btn--sm">Вийти</a>
+            </nav>
+        </div>
+    </header>
+
+    <main class="main">
+        <div class="page-header">
+            <h1 class="page-title">📚 {{title}}</h1>
+            <a href="/teacher/courses/new" class="btn btn--primary">+ Новий курс</a>
+        </div>
+
+        <div class="table-wrap">
+            <table class="table">
+                <thead>
+                    <tr>
+                        <th>Назва</th>
+                        <th>Опис</th>
+                        <th>Макс. студентів</th>
+                        <th>Статус</th>
+                        <th>Створено</th>
+                        <th>Дії</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    {{#each courses}}
+                    <tr>
+                        <td><strong>{{Title}}</strong></td>
+                        <td class="td--desc">{{Description}}</td>
+                        <td>{{MaxStudents}}</td>
+                        <td>
+                            {{#if IsActiveBool}}
+                            <span class="badge badge--success">Активний</span>
+                            {{/if}}
+                            {{#if IsActiveBool}}{{/if}}<span class="badge badge--muted">Неактивний</span>
+                        </td>
+                        <td>{{CreatedAt}}</td>
+                        <td class="td--actions">
+                            <a href="/teacher/courses/{{Id}}/students" class="btn btn--secondary btn--sm">👥 Студенти</a>
+                            <a href="/teacher/courses/{{Id}}/edit" class="btn btn--outline btn--sm">✏️ Редагувати</a>
+                            <form method="POST" action="/teacher/courses/{{Id}}/delete" style="display:inline">
+                                <button type="submit" class="btn btn--danger btn--sm"
+                                        onclick="return confirm('Видалити курс «{{Title}}»?')">
+                                    🗑 Видалити
+                                </button>
+                            </form>
+                        </td>
+                    </tr>
+                    {{/each}}
+                </tbody>
+            </table>
+        </div>
+    </main>
+</body>
+</html>

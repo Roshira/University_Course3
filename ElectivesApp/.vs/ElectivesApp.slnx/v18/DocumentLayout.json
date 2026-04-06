@@ -1,0 +1,628 @@
+{
+  "Version": 1,
+  "WorkspaceRootPath": "D:\\ElectivesApp\\",
+  "Documents": [
+    {
+      "AbsoluteMoniker": "D:0:0:{1DFD57D8-8D41-FC14-9C64-A050FC62D858}|ElectivesApp.Tests\\ElectivesApp.Tests.csproj|d:\\electivesapp\\electivesapp.tests\\templateenginetests.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{1DFD57D8-8D41-FC14-9C64-A050FC62D858}|ElectivesApp.Tests\\ElectivesApp.Tests.csproj|solutionrelative:electivesapp.tests\\templateenginetests.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{1DFD57D8-8D41-FC14-9C64-A050FC62D858}|ElectivesApp.Tests\\ElectivesApp.Tests.csproj|d:\\electivesapp\\electivesapp.tests\\sessionstoretests.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{1DFD57D8-8D41-FC14-9C64-A050FC62D858}|ElectivesApp.Tests\\ElectivesApp.Tests.csproj|solutionrelative:electivesapp.tests\\sessionstoretests.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{1DFD57D8-8D41-FC14-9C64-A050FC62D858}|ElectivesApp.Tests\\ElectivesApp.Tests.csproj|d:\\electivesapp\\electivesapp.tests\\routertests.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{1DFD57D8-8D41-FC14-9C64-A050FC62D858}|ElectivesApp.Tests\\ElectivesApp.Tests.csproj|solutionrelative:electivesapp.tests\\routertests.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{1DFD57D8-8D41-FC14-9C64-A050FC62D858}|ElectivesApp.Tests\\ElectivesApp.Tests.csproj|d:\\electivesapp\\electivesapp.tests\\authcontrollertests.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{1DFD57D8-8D41-FC14-9C64-A050FC62D858}|ElectivesApp.Tests\\ElectivesApp.Tests.csproj|solutionrelative:electivesapp.tests\\authcontrollertests.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{423B283F-525D-219F-AF8E-D121618421CC}|ElectivesApp\\ElectivesApp.csproj|d:\\electivesapp\\electivesapp\\views\\auth\\login.html||{40D31677-CBC0-4297-A9EF-89D907823A98}",
+      "RelativeMoniker": "D:0:0:{423B283F-525D-219F-AF8E-D121618421CC}|ElectivesApp\\ElectivesApp.csproj|solutionrelative:electivesapp\\views\\auth\\login.html||{40D31677-CBC0-4297-A9EF-89D907823A98}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{423B283F-525D-219F-AF8E-D121618421CC}|ElectivesApp\\ElectivesApp.csproj|d:\\electivesapp\\electivesapp\\core\\frontcontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{423B283F-525D-219F-AF8E-D121618421CC}|ElectivesApp\\ElectivesApp.csproj|solutionrelative:electivesapp\\core\\frontcontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{423B283F-525D-219F-AF8E-D121618421CC}|ElectivesApp\\ElectivesApp.csproj|d:\\electivesapp\\electivesapp\\core\\controllers\\authcontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{423B283F-525D-219F-AF8E-D121618421CC}|ElectivesApp\\ElectivesApp.csproj|solutionrelative:electivesapp\\core\\controllers\\authcontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{423B283F-525D-219F-AF8E-D121618421CC}|ElectivesApp\\ElectivesApp.csproj|d:\\electivesapp\\electivesapp\\views\\auth\\register.html||{40D31677-CBC0-4297-A9EF-89D907823A98}",
+      "RelativeMoniker": "D:0:0:{423B283F-525D-219F-AF8E-D121618421CC}|ElectivesApp\\ElectivesApp.csproj|solutionrelative:electivesapp\\views\\auth\\register.html||{40D31677-CBC0-4297-A9EF-89D907823A98}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{423B283F-525D-219F-AF8E-D121618421CC}|ElectivesApp\\ElectivesApp.csproj|d:\\electivesapp\\electivesapp\\wwwroot\\static\\css\\style.css||{A5401142-F49D-43DB-90B1-F57BA349E55C}",
+      "RelativeMoniker": "D:0:0:{423B283F-525D-219F-AF8E-D121618421CC}|ElectivesApp\\ElectivesApp.csproj|solutionrelative:electivesapp\\wwwroot\\static\\css\\style.css||{A5401142-F49D-43DB-90B1-F57BA349E55C}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{423B283F-525D-219F-AF8E-D121618421CC}|ElectivesApp\\ElectivesApp.csproj|d:\\electivesapp\\electivesapp\\core\\controllers\\studentcontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{423B283F-525D-219F-AF8E-D121618421CC}|ElectivesApp\\ElectivesApp.csproj|solutionrelative:electivesapp\\core\\controllers\\studentcontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{423B283F-525D-219F-AF8E-D121618421CC}|ElectivesApp\\ElectivesApp.csproj|d:\\electivesapp\\electivesapp\\dao\\coursedao.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{423B283F-525D-219F-AF8E-D121618421CC}|ElectivesApp\\ElectivesApp.csproj|solutionrelative:electivesapp\\dao\\coursedao.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{423B283F-525D-219F-AF8E-D121618421CC}|ElectivesApp\\ElectivesApp.csproj|d:\\electivesapp\\electivesapp\\views\\teacher\\courseform.html||{40D31677-CBC0-4297-A9EF-89D907823A98}",
+      "RelativeMoniker": "D:0:0:{423B283F-525D-219F-AF8E-D121618421CC}|ElectivesApp\\ElectivesApp.csproj|solutionrelative:electivesapp\\views\\teacher\\courseform.html||{40D31677-CBC0-4297-A9EF-89D907823A98}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{423B283F-525D-219F-AF8E-D121618421CC}|ElectivesApp\\ElectivesApp.csproj|d:\\electivesapp\\electivesapp\\appsettings.json||{90A6B3A7-C1A3-4009-A288-E2FF89E96FA0}",
+      "RelativeMoniker": "D:0:0:{423B283F-525D-219F-AF8E-D121618421CC}|ElectivesApp\\ElectivesApp.csproj|solutionrelative:electivesapp\\appsettings.json||{90A6B3A7-C1A3-4009-A288-E2FF89E96FA0}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{423B283F-525D-219F-AF8E-D121618421CC}|ElectivesApp\\ElectivesApp.csproj|d:\\electivesapp\\electivesapp\\views\\layout.html||{40D31677-CBC0-4297-A9EF-89D907823A98}",
+      "RelativeMoniker": "D:0:0:{423B283F-525D-219F-AF8E-D121618421CC}|ElectivesApp\\ElectivesApp.csproj|solutionrelative:electivesapp\\views\\layout.html||{40D31677-CBC0-4297-A9EF-89D907823A98}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{423B283F-525D-219F-AF8E-D121618421CC}|ElectivesApp\\ElectivesApp.csproj|d:\\electivesapp\\electivesapp\\program.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{423B283F-525D-219F-AF8E-D121618421CC}|ElectivesApp\\ElectivesApp.csproj|solutionrelative:electivesapp\\program.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{423B283F-525D-219F-AF8E-D121618421CC}|ElectivesApp\\ElectivesApp.csproj|d:\\electivesapp\\electivesapp\\views\\student\\courses.html||{40D31677-CBC0-4297-A9EF-89D907823A98}",
+      "RelativeMoniker": "D:0:0:{423B283F-525D-219F-AF8E-D121618421CC}|ElectivesApp\\ElectivesApp.csproj|solutionrelative:electivesapp\\views\\student\\courses.html||{40D31677-CBC0-4297-A9EF-89D907823A98}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{423B283F-525D-219F-AF8E-D121618421CC}|ElectivesApp\\ElectivesApp.csproj|d:\\electivesapp\\electivesapp\\.gitignore||{3B902123-F8A7-4915-9F01-361F908088D0}",
+      "RelativeMoniker": "D:0:0:{423B283F-525D-219F-AF8E-D121618421CC}|ElectivesApp\\ElectivesApp.csproj|solutionrelative:electivesapp\\.gitignore||{3B902123-F8A7-4915-9F01-361F908088D0}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{423B283F-525D-219F-AF8E-D121618421CC}|ElectivesApp\\ElectivesApp.csproj|d:\\electivesapp\\electivesapp\\views\\teacher\\students.html||{40D31677-CBC0-4297-A9EF-89D907823A98}",
+      "RelativeMoniker": "D:0:0:{423B283F-525D-219F-AF8E-D121618421CC}|ElectivesApp\\ElectivesApp.csproj|solutionrelative:electivesapp\\views\\teacher\\students.html||{40D31677-CBC0-4297-A9EF-89D907823A98}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{423B283F-525D-219F-AF8E-D121618421CC}|ElectivesApp\\ElectivesApp.csproj|d:\\electivesapp\\electivesapp\\views\\teacher\\courses.html||{40D31677-CBC0-4297-A9EF-89D907823A98}",
+      "RelativeMoniker": "D:0:0:{423B283F-525D-219F-AF8E-D121618421CC}|ElectivesApp\\ElectivesApp.csproj|solutionrelative:electivesapp\\views\\teacher\\courses.html||{40D31677-CBC0-4297-A9EF-89D907823A98}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{423B283F-525D-219F-AF8E-D121618421CC}|ElectivesApp\\ElectivesApp.csproj|d:\\electivesapp\\electivesapp\\views\\student\\mycourses.html||{40D31677-CBC0-4297-A9EF-89D907823A98}",
+      "RelativeMoniker": "D:0:0:{423B283F-525D-219F-AF8E-D121618421CC}|ElectivesApp\\ElectivesApp.csproj|solutionrelative:electivesapp\\views\\student\\mycourses.html||{40D31677-CBC0-4297-A9EF-89D907823A98}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{423B283F-525D-219F-AF8E-D121618421CC}|ElectivesApp\\ElectivesApp.csproj|d:\\electivesapp\\electivesapp\\core\\sessionstore.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{423B283F-525D-219F-AF8E-D121618421CC}|ElectivesApp\\ElectivesApp.csproj|solutionrelative:electivesapp\\core\\sessionstore.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{423B283F-525D-219F-AF8E-D121618421CC}|ElectivesApp\\ElectivesApp.csproj|d:\\electivesapp\\electivesapp\\core\\router.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{423B283F-525D-219F-AF8E-D121618421CC}|ElectivesApp\\ElectivesApp.csproj|solutionrelative:electivesapp\\core\\router.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{423B283F-525D-219F-AF8E-D121618421CC}|ElectivesApp\\ElectivesApp.csproj|d:\\electivesapp\\electivesapp\\core\\controllers\\teachercontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{423B283F-525D-219F-AF8E-D121618421CC}|ElectivesApp\\ElectivesApp.csproj|solutionrelative:electivesapp\\core\\controllers\\teachercontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{423B283F-525D-219F-AF8E-D121618421CC}|ElectivesApp\\ElectivesApp.csproj|d:\\electivesapp\\electivesapp\\properties\\launchsettings.json||{90A6B3A7-C1A3-4009-A288-E2FF89E96FA0}",
+      "RelativeMoniker": "D:0:0:{423B283F-525D-219F-AF8E-D121618421CC}|ElectivesApp\\ElectivesApp.csproj|solutionrelative:electivesapp\\properties\\launchsettings.json||{90A6B3A7-C1A3-4009-A288-E2FF89E96FA0}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{423B283F-525D-219F-AF8E-D121618421CC}|ElectivesApp\\ElectivesApp.csproj|d:\\electivesapp\\electivesapp\\core\\basecontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{423B283F-525D-219F-AF8E-D121618421CC}|ElectivesApp\\ElectivesApp.csproj|solutionrelative:electivesapp\\core\\basecontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{423B283F-525D-219F-AF8E-D121618421CC}|ElectivesApp\\ElectivesApp.csproj|d:\\electivesapp\\electivesapp\\core\\templateengine.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{423B283F-525D-219F-AF8E-D121618421CC}|ElectivesApp\\ElectivesApp.csproj|solutionrelative:electivesapp\\core\\templateengine.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{423B283F-525D-219F-AF8E-D121618421CC}|ElectivesApp\\ElectivesApp.csproj|d:\\electivesapp\\electivesapp\\dao\\enrollmentdao.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{423B283F-525D-219F-AF8E-D121618421CC}|ElectivesApp\\ElectivesApp.csproj|solutionrelative:electivesapp\\dao\\enrollmentdao.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{423B283F-525D-219F-AF8E-D121618421CC}|ElectivesApp\\ElectivesApp.csproj|d:\\electivesapp\\electivesapp\\dao\\idao.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{423B283F-525D-219F-AF8E-D121618421CC}|ElectivesApp\\ElectivesApp.csproj|solutionrelative:electivesapp\\dao\\idao.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{423B283F-525D-219F-AF8E-D121618421CC}|ElectivesApp\\ElectivesApp.csproj|d:\\electivesapp\\electivesapp\\dao\\userdao.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{423B283F-525D-219F-AF8E-D121618421CC}|ElectivesApp\\ElectivesApp.csproj|solutionrelative:electivesapp\\dao\\userdao.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{423B283F-525D-219F-AF8E-D121618421CC}|ElectivesApp\\ElectivesApp.csproj|d:\\electivesapp\\electivesapp\\infrastructure\\dbconnectionfactory.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{423B283F-525D-219F-AF8E-D121618421CC}|ElectivesApp\\ElectivesApp.csproj|solutionrelative:electivesapp\\infrastructure\\dbconnectionfactory.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{423B283F-525D-219F-AF8E-D121618421CC}|ElectivesApp\\ElectivesApp.csproj|d:\\electivesapp\\electivesapp\\models\\models.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{423B283F-525D-219F-AF8E-D121618421CC}|ElectivesApp\\ElectivesApp.csproj|solutionrelative:electivesapp\\models\\models.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{423B283F-525D-219F-AF8E-D121618421CC}|ElectivesApp\\ElectivesApp.csproj|d:\\electivesapp\\electivesapp\\infrastructure\\filelogger.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{423B283F-525D-219F-AF8E-D121618421CC}|ElectivesApp\\ElectivesApp.csproj|solutionrelative:electivesapp\\infrastructure\\filelogger.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{423B283F-525D-219F-AF8E-D121618421CC}|ElectivesApp\\ElectivesApp.csproj|d:\\electivesapp\\electivesapp\\infrastructure\\appconfig.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{423B283F-525D-219F-AF8E-D121618421CC}|ElectivesApp\\ElectivesApp.csproj|solutionrelative:electivesapp\\infrastructure\\appconfig.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{423B283F-525D-219F-AF8E-D121618421CC}|ElectivesApp\\ElectivesApp.csproj|d:\\electivesapp\\electivesapp\\electivesapp.csproj||{FA3CD31E-987B-443A-9B81-186104E8DAC1}|",
+      "RelativeMoniker": "D:0:0:{423B283F-525D-219F-AF8E-D121618421CC}|ElectivesApp\\ElectivesApp.csproj|solutionrelative:electivesapp\\electivesapp.csproj||{FA3CD31E-987B-443A-9B81-186104E8DAC1}|"
+    }
+  ],
+  "DocumentGroupContainers": [
+    {
+      "Orientation": 1,
+      "VerticalTabListWidth": 256,
+      "DocumentGroups": [
+        {
+          "DockedHeight": 200,
+          "SelectedChildIndex": 9,
+          "Children": [
+            {
+              "$type": "Bookmark",
+              "Name": "ST:129:0:{1fc202d4-d401-403c-9834-5b218574bb67}"
+            },
+            {
+              "$type": "Bookmark",
+              "Name": "ST:254354193:0:{71f361cc-493f-47c0-923f-f2570b6f8618}"
+            },
+            {
+              "$type": "Bookmark",
+              "Name": "ST:132:0:{1fc202d4-d401-403c-9834-5b218574bb67}"
+            },
+            {
+              "$type": "Bookmark",
+              "Name": "ST:133:0:{1fc202d4-d401-403c-9834-5b218574bb67}"
+            },
+            {
+              "$type": "Bookmark",
+              "Name": "ST:0:0:{aa2115a1-9712-457b-9047-dbb71ca2cdd2}"
+            },
+            {
+              "$type": "Bookmark",
+              "Name": "ST:0:0:{74946827-37a0-11d2-a273-00c04f8ef4ff}"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 3,
+              "Title": "AuthControllerTests.cs",
+              "DocumentMoniker": "D:\\ElectivesApp\\ElectivesApp.Tests\\AuthControllerTests.cs",
+              "RelativeDocumentMoniker": "ElectivesApp.Tests\\AuthControllerTests.cs",
+              "ToolTip": "D:\\ElectivesApp\\ElectivesApp.Tests\\AuthControllerTests.cs",
+              "RelativeToolTip": "ElectivesApp.Tests\\AuthControllerTests.cs",
+              "ViewState": "AgIAAAwAAAAAAAAAAAAAAB0AAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2026-04-05T17:35:52.258Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 1,
+              "Title": "SessionStoreTests.cs",
+              "DocumentMoniker": "D:\\ElectivesApp\\ElectivesApp.Tests\\SessionStoreTests.cs",
+              "RelativeDocumentMoniker": "ElectivesApp.Tests\\SessionStoreTests.cs",
+              "ToolTip": "D:\\ElectivesApp\\ElectivesApp.Tests\\SessionStoreTests.cs",
+              "RelativeToolTip": "ElectivesApp.Tests\\SessionStoreTests.cs",
+              "ViewState": "AgIAAAQAAAAAAAAAAAAkwBcAAAABAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2026-04-05T17:35:31.454Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 2,
+              "Title": "RouterTests.cs",
+              "DocumentMoniker": "D:\\ElectivesApp\\ElectivesApp.Tests\\RouterTests.cs",
+              "RelativeDocumentMoniker": "ElectivesApp.Tests\\RouterTests.cs",
+              "ToolTip": "D:\\ElectivesApp\\ElectivesApp.Tests\\RouterTests.cs",
+              "RelativeToolTip": "ElectivesApp.Tests\\RouterTests.cs",
+              "ViewState": "AgIAAAcAAAAAAAAAAAAkwBcAAAABAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2026-04-05T17:35:03.745Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 0,
+              "Title": "TemplateEngineTests.cs",
+              "DocumentMoniker": "D:\\ElectivesApp\\ElectivesApp.Tests\\TemplateEngineTests.cs",
+              "RelativeDocumentMoniker": "ElectivesApp.Tests\\TemplateEngineTests.cs",
+              "ToolTip": "D:\\ElectivesApp\\ElectivesApp.Tests\\TemplateEngineTests.cs",
+              "RelativeToolTip": "ElectivesApp.Tests\\TemplateEngineTests.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAABYAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2026-04-05T17:34:30.352Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 7,
+              "Title": "Register.html",
+              "DocumentMoniker": "D:\\ElectivesApp\\ElectivesApp\\Views\\Auth\\Register.html",
+              "RelativeDocumentMoniker": "ElectivesApp\\Views\\Auth\\Register.html",
+              "ToolTip": "D:\\ElectivesApp\\ElectivesApp\\Views\\Auth\\Register.html",
+              "RelativeToolTip": "ElectivesApp\\Views\\Auth\\Register.html",
+              "ViewState": "AgIAABoAAAAAAAAAAAAUwC4AAAAHAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.001512|",
+              "WhenOpened": "2026-04-05T17:22:25.017Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 8,
+              "Title": "style.css",
+              "DocumentMoniker": "D:\\ElectivesApp\\ElectivesApp\\wwwroot\\static\\css\\style.css",
+              "RelativeDocumentMoniker": "ElectivesApp\\wwwroot\\static\\css\\style.css",
+              "ToolTip": "D:\\ElectivesApp\\ElectivesApp\\wwwroot\\static\\css\\style.css",
+              "RelativeToolTip": "ElectivesApp\\wwwroot\\static\\css\\style.css",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAJAAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.003000|",
+              "WhenOpened": "2026-04-05T17:21:39.723Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 10,
+              "Title": "CourseDao.cs",
+              "DocumentMoniker": "D:\\ElectivesApp\\ElectivesApp\\DAO\\CourseDao.cs",
+              "RelativeDocumentMoniker": "ElectivesApp\\DAO\\CourseDao.cs",
+              "ToolTip": "D:\\ElectivesApp\\ElectivesApp\\DAO\\CourseDao.cs",
+              "RelativeToolTip": "ElectivesApp\\DAO\\CourseDao.cs",
+              "ViewState": "AgIAADsAAAAAAAAAAAAmwAYAAAAjAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2026-04-05T10:46:03.072Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 6,
+              "Title": "AuthController.cs",
+              "DocumentMoniker": "D:\\ElectivesApp\\ElectivesApp\\Core\\Controllers\\AuthController.cs",
+              "RelativeDocumentMoniker": "ElectivesApp\\Core\\Controllers\\AuthController.cs",
+              "ToolTip": "D:\\ElectivesApp\\ElectivesApp\\Core\\Controllers\\AuthController.cs",
+              "RelativeToolTip": "ElectivesApp\\Core\\Controllers\\AuthController.cs",
+              "ViewState": "AgIAAGgAAAAAAAAAAAAUwIUAAAAFAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2026-04-05T10:44:34.429Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 5,
+              "Title": "FrontController.cs",
+              "DocumentMoniker": "D:\\ElectivesApp\\ElectivesApp\\Core\\FrontController.cs",
+              "RelativeDocumentMoniker": "ElectivesApp\\Core\\FrontController.cs",
+              "ToolTip": "D:\\ElectivesApp\\ElectivesApp\\Core\\FrontController.cs",
+              "RelativeToolTip": "ElectivesApp\\Core\\FrontController.cs",
+              "ViewState": "AgIAACwAAAAAAAAAAAAlwDsAAABVAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2026-04-05T10:43:29.012Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 4,
+              "Title": "Login.html",
+              "DocumentMoniker": "D:\\ElectivesApp\\ElectivesApp\\Views\\Auth\\Login.html",
+              "RelativeDocumentMoniker": "ElectivesApp\\Views\\Auth\\Login.html",
+              "ToolTip": "D:\\ElectivesApp\\ElectivesApp\\Views\\Auth\\Login.html",
+              "RelativeToolTip": "ElectivesApp\\Views\\Auth\\Login.html",
+              "ViewState": "AgIAABAAAAAAAAAAAAAUwB4AAABQAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.001512|",
+              "WhenOpened": "2026-04-05T11:12:38.159Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 11,
+              "Title": "CourseForm.html",
+              "DocumentMoniker": "D:\\ElectivesApp\\ElectivesApp\\Views\\Teacher\\CourseForm.html",
+              "RelativeDocumentMoniker": "ElectivesApp\\Views\\Teacher\\CourseForm.html",
+              "ToolTip": "D:\\ElectivesApp\\ElectivesApp\\Views\\Teacher\\CourseForm.html",
+              "RelativeToolTip": "ElectivesApp\\Views\\Teacher\\CourseForm.html",
+              "ViewState": "AgIAACIAAAAAAAAAAAAiwD8AAAAHAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.001512|",
+              "WhenOpened": "2026-04-05T11:13:42.73Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 12,
+              "Title": "appsettings.json",
+              "DocumentMoniker": "D:\\ElectivesApp\\ElectivesApp\\appsettings.json",
+              "RelativeDocumentMoniker": "ElectivesApp\\appsettings.json",
+              "ToolTip": "D:\\ElectivesApp\\ElectivesApp\\appsettings.json",
+              "RelativeToolTip": "ElectivesApp\\appsettings.json",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAEAAABnAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.001642|",
+              "WhenOpened": "2026-04-05T10:43:01.966Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 9,
+              "Title": "StudentController.cs",
+              "DocumentMoniker": "D:\\ElectivesApp\\ElectivesApp\\Core\\Controllers\\StudentController.cs",
+              "RelativeDocumentMoniker": "ElectivesApp\\Core\\Controllers\\StudentController.cs",
+              "ToolTip": "D:\\ElectivesApp\\ElectivesApp\\Core\\Controllers\\StudentController.cs",
+              "RelativeToolTip": "ElectivesApp\\Core\\Controllers\\StudentController.cs",
+              "ViewState": "AgIAAFUAAAAAAAAAAAAuwHEAAAABAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2026-04-05T10:44:43.527Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 14,
+              "Title": "Program.cs",
+              "DocumentMoniker": "D:\\ElectivesApp\\ElectivesApp\\Program.cs",
+              "RelativeDocumentMoniker": "ElectivesApp\\Program.cs",
+              "ToolTip": "D:\\ElectivesApp\\ElectivesApp\\Program.cs",
+              "RelativeToolTip": "ElectivesApp\\Program.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAABIAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2026-04-05T10:49:26.61Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 13,
+              "Title": "Layout.html",
+              "DocumentMoniker": "D:\\ElectivesApp\\ElectivesApp\\Views\\Layout.html",
+              "RelativeDocumentMoniker": "ElectivesApp\\Views\\Layout.html",
+              "ToolTip": "D:\\ElectivesApp\\ElectivesApp\\Views\\Layout.html",
+              "RelativeToolTip": "ElectivesApp\\Views\\Layout.html",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAABMAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.001512|",
+              "WhenOpened": "2026-04-05T11:11:57.925Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 15,
+              "Title": "Courses.html",
+              "DocumentMoniker": "D:\\ElectivesApp\\ElectivesApp\\Views\\Student\\Courses.html",
+              "RelativeDocumentMoniker": "ElectivesApp\\Views\\Student\\Courses.html",
+              "ToolTip": "D:\\ElectivesApp\\ElectivesApp\\Views\\Student\\Courses.html",
+              "RelativeToolTip": "ElectivesApp\\Views\\Student\\Courses.html",
+              "ViewState": "AgIAACEAAAAAAAAAAAAiwD4AAAAHAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.001512|",
+              "WhenOpened": "2026-04-05T11:12:50.604Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 16,
+              "Title": ".gitignore",
+              "DocumentMoniker": "D:\\ElectivesApp\\ElectivesApp\\.gitignore",
+              "RelativeDocumentMoniker": "ElectivesApp\\.gitignore",
+              "ToolTip": "D:\\ElectivesApp\\ElectivesApp\\.gitignore",
+              "RelativeToolTip": "ElectivesApp\\.gitignore",
+              "ViewState": "AgIAAB4AAAAAAAAAAAAiwDsAAAANAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.001001|",
+              "WhenOpened": "2026-04-05T11:21:27.887Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 17,
+              "Title": "Students.html",
+              "DocumentMoniker": "D:\\ElectivesApp\\ElectivesApp\\Views\\Teacher\\Students.html",
+              "RelativeDocumentMoniker": "ElectivesApp\\Views\\Teacher\\Students.html",
+              "ToolTip": "D:\\ElectivesApp\\ElectivesApp\\Views\\Teacher\\Students.html",
+              "RelativeToolTip": "ElectivesApp\\Views\\Teacher\\Students.html",
+              "ViewState": "AgIAAF0AAAAAAAAAAAAiwHoAAAAHAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.001512|",
+              "WhenOpened": "2026-04-05T11:13:58.536Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 18,
+              "Title": "Courses.html",
+              "DocumentMoniker": "D:\\ElectivesApp\\ElectivesApp\\Views\\Teacher\\Courses.html",
+              "RelativeDocumentMoniker": "ElectivesApp\\Views\\Teacher\\Courses.html",
+              "ToolTip": "D:\\ElectivesApp\\ElectivesApp\\Views\\Teacher\\Courses.html",
+              "RelativeToolTip": "ElectivesApp\\Views\\Teacher\\Courses.html",
+              "ViewState": "AgIAACcAAAAAAAAAAAAgwEQAAAAHAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.001512|",
+              "WhenOpened": "2026-04-05T11:13:33.334Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 19,
+              "Title": "MyCourses.html",
+              "DocumentMoniker": "D:\\ElectivesApp\\ElectivesApp\\Views\\Student\\MyCourses.html",
+              "RelativeDocumentMoniker": "ElectivesApp\\Views\\Student\\MyCourses.html",
+              "ToolTip": "D:\\ElectivesApp\\ElectivesApp\\Views\\Student\\MyCourses.html",
+              "RelativeToolTip": "ElectivesApp\\Views\\Student\\MyCourses.html",
+              "ViewState": "AgIAADEAAAAAAAAAAAAiwE4AAAAHAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.001512|",
+              "WhenOpened": "2026-04-05T11:13:13.165Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 20,
+              "Title": "SessionStore.cs",
+              "DocumentMoniker": "D:\\ElectivesApp\\ElectivesApp\\Core\\SessionStore.cs",
+              "RelativeDocumentMoniker": "ElectivesApp\\Core\\SessionStore.cs",
+              "ToolTip": "D:\\ElectivesApp\\ElectivesApp\\Core\\SessionStore.cs",
+              "RelativeToolTip": "ElectivesApp\\Core\\SessionStore.cs",
+              "ViewState": "AgIAAEQAAAAAAAAAAAAuwGAAAAABAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2026-04-05T10:44:11.576Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 21,
+              "Title": "Router.cs",
+              "DocumentMoniker": "D:\\ElectivesApp\\ElectivesApp\\Core\\Router.cs",
+              "RelativeDocumentMoniker": "ElectivesApp\\Core\\Router.cs",
+              "ToolTip": "D:\\ElectivesApp\\ElectivesApp\\Core\\Router.cs",
+              "RelativeToolTip": "ElectivesApp\\Core\\Router.cs",
+              "ViewState": "AgIAADcAAAAAAAAAAAA+wFMAAAABAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2026-04-05T10:43:39.06Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 22,
+              "Title": "TeacherController.cs",
+              "DocumentMoniker": "D:\\ElectivesApp\\ElectivesApp\\Core\\Controllers\\TeacherController.cs",
+              "RelativeDocumentMoniker": "ElectivesApp\\Core\\Controllers\\TeacherController.cs",
+              "ToolTip": "D:\\ElectivesApp\\ElectivesApp\\Core\\Controllers\\TeacherController.cs",
+              "RelativeToolTip": "ElectivesApp\\Core\\Controllers\\TeacherController.cs",
+              "ViewState": "AgIAAOYAAAAAAAAAAAAuwAIBAAABAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2026-04-05T10:44:52.047Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 23,
+              "Title": "launchSettings.json",
+              "DocumentMoniker": "D:\\ElectivesApp\\ElectivesApp\\Properties\\launchSettings.json",
+              "RelativeDocumentMoniker": "ElectivesApp\\Properties\\launchSettings.json",
+              "ToolTip": "D:\\ElectivesApp\\ElectivesApp\\Properties\\launchSettings.json",
+              "RelativeToolTip": "ElectivesApp\\Properties\\launchSettings.json",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.001642|",
+              "WhenOpened": "2026-04-05T10:48:23.95Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 24,
+              "Title": "BaseController.cs",
+              "DocumentMoniker": "D:\\ElectivesApp\\ElectivesApp\\Core\\BaseController.cs",
+              "RelativeDocumentMoniker": "ElectivesApp\\Core\\BaseController.cs",
+              "ToolTip": "D:\\ElectivesApp\\ElectivesApp\\Core\\BaseController.cs",
+              "RelativeToolTip": "ElectivesApp\\Core\\BaseController.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAEYAAAABAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2026-04-05T10:43:50.448Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 25,
+              "Title": "TemplateEngine.cs",
+              "DocumentMoniker": "D:\\ElectivesApp\\ElectivesApp\\Core\\TemplateEngine.cs",
+              "RelativeDocumentMoniker": "ElectivesApp\\Core\\TemplateEngine.cs",
+              "ToolTip": "D:\\ElectivesApp\\ElectivesApp\\Core\\TemplateEngine.cs",
+              "RelativeToolTip": "ElectivesApp\\Core\\TemplateEngine.cs",
+              "ViewState": "AgIAAEIAAAAAAAAAAAAuwF4AAAABAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2026-04-05T10:43:59.267Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 26,
+              "Title": "EnrollmentDao.cs",
+              "DocumentMoniker": "D:\\ElectivesApp\\ElectivesApp\\DAO\\EnrollmentDao.cs",
+              "RelativeDocumentMoniker": "ElectivesApp\\DAO\\EnrollmentDao.cs",
+              "ToolTip": "D:\\ElectivesApp\\ElectivesApp\\DAO\\EnrollmentDao.cs",
+              "RelativeToolTip": "ElectivesApp\\DAO\\EnrollmentDao.cs",
+              "ViewState": "AgIAAGIAAAAAAAAAAAAuwH4AAAABAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2026-04-05T10:46:12.081Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 27,
+              "Title": "IDao.cs",
+              "DocumentMoniker": "D:\\ElectivesApp\\ElectivesApp\\DAO\\IDao.cs",
+              "RelativeDocumentMoniker": "ElectivesApp\\DAO\\IDao.cs",
+              "ToolTip": "D:\\ElectivesApp\\ElectivesApp\\DAO\\IDao.cs",
+              "RelativeToolTip": "ElectivesApp\\DAO\\IDao.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAACIAAAABAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2026-04-05T10:45:46.047Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 28,
+              "Title": "UserDao.cs",
+              "DocumentMoniker": "D:\\ElectivesApp\\ElectivesApp\\DAO\\UserDao.cs",
+              "RelativeDocumentMoniker": "ElectivesApp\\DAO\\UserDao.cs",
+              "ToolTip": "D:\\ElectivesApp\\ElectivesApp\\DAO\\UserDao.cs",
+              "RelativeToolTip": "ElectivesApp\\DAO\\UserDao.cs",
+              "ViewState": "AgIAAF8AAAAAAAAAAAAuwHsAAAABAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2026-04-05T10:45:54.255Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 29,
+              "Title": "DbConnectionFactory.cs",
+              "DocumentMoniker": "D:\\ElectivesApp\\ElectivesApp\\Infrastructure\\DbConnectionFactory.cs",
+              "RelativeDocumentMoniker": "ElectivesApp\\Infrastructure\\DbConnectionFactory.cs",
+              "ToolTip": "D:\\ElectivesApp\\ElectivesApp\\Infrastructure\\DbConnectionFactory.cs",
+              "RelativeToolTip": "ElectivesApp\\Infrastructure\\DbConnectionFactory.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAABMAAAABAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2026-04-05T10:47:49.192Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 30,
+              "Title": "Models.cs",
+              "DocumentMoniker": "D:\\ElectivesApp\\ElectivesApp\\Models\\Models.cs",
+              "RelativeDocumentMoniker": "ElectivesApp\\Models\\Models.cs",
+              "ToolTip": "D:\\ElectivesApp\\ElectivesApp\\Models\\Models.cs",
+              "RelativeToolTip": "ElectivesApp\\Models\\Models.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAADkAAAA9AAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2026-04-05T10:46:35.533Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 31,
+              "Title": "FileLogger.cs",
+              "DocumentMoniker": "D:\\ElectivesApp\\ElectivesApp\\Infrastructure\\FileLogger.cs",
+              "RelativeDocumentMoniker": "ElectivesApp\\Infrastructure\\FileLogger.cs",
+              "ToolTip": "D:\\ElectivesApp\\ElectivesApp\\Infrastructure\\FileLogger.cs",
+              "RelativeToolTip": "ElectivesApp\\Infrastructure\\FileLogger.cs",
+              "ViewState": "AgIAABUAAAAAAAAAAAA+wDEAAAABAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2026-04-05T10:47:32.844Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 32,
+              "Title": "AppConfig.cs",
+              "DocumentMoniker": "D:\\ElectivesApp\\ElectivesApp\\Infrastructure\\AppConfig.cs",
+              "RelativeDocumentMoniker": "ElectivesApp\\Infrastructure\\AppConfig.cs",
+              "ToolTip": "D:\\ElectivesApp\\ElectivesApp\\Infrastructure\\AppConfig.cs",
+              "RelativeToolTip": "ElectivesApp\\Infrastructure\\AppConfig.cs",
+              "ViewState": "AgIAAAkAAAAAAAAAAAA6wCUAAAABAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2026-04-05T10:47:04.301Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 33,
+              "Title": "ElectivesApp.csproj",
+              "DocumentMoniker": "D:\\ElectivesApp\\ElectivesApp\\ElectivesApp.csproj",
+              "RelativeDocumentMoniker": "ElectivesApp\\ElectivesApp.csproj",
+              "ToolTip": "D:\\ElectivesApp\\ElectivesApp\\ElectivesApp.csproj",
+              "RelativeToolTip": "ElectivesApp\\ElectivesApp.csproj",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAABkAAAAKAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000758|",
+              "WhenOpened": "2026-04-05T10:42:46.825Z"
+            }
+          ]
+        },
+        {
+          "DockedHeight": 200,
+          "SelectedChildIndex": -1,
+          "Children": [
+            {
+              "$type": "Bookmark",
+              "Name": "ST:0:0:{1c4feeaa-4718-4aa9-859d-94ce25d182ba}"
+            },
+            {
+              "$type": "Bookmark",
+              "Name": "ST:1:0:{d212f56b-c48a-434c-a121-1c5d80b59b9f}"
+            }
+          ]
+        },
+        {
+          "DockedHeight": 200,
+          "SelectedChildIndex": -1,
+          "Children": [
+            {
+              "$type": "Bookmark",
+              "Name": "ST:129:0:{116d2292-e37d-41cd-a077-ebacac4c8cc4}"
+            },
+            {
+              "$type": "Bookmark",
+              "Name": "ST:131:0:{116d2292-e37d-41cd-a077-ebacac4c8cc4}"
+            },
+            {
+              "$type": "Bookmark",
+              "Name": "ST:4:0:{34c7837f-3b3a-449c-bdf0-bdad86cbaf4a}"
+            },
+            {
+              "$type": "Bookmark",
+              "Name": "ST:3:0:{34c7837f-3b3a-449c-bdf0-bdad86cbaf4a}"
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}

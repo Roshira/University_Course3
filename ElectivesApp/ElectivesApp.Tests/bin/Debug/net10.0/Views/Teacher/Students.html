@@ -1,0 +1,123 @@
+﻿<!DOCTYPE html>
+<html lang="uk">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>{{title}} — Факультативи</title>
+    <link rel="stylesheet" href="/static/css/style.css">
+</head>
+<body>
+    <header class="header">
+        <div class="header__inner">
+            <span class="header__logo">🎓 Факультативи</span>
+            <nav class="header__nav">
+                <a href="/teacher/courses" class="header__link">← Мої курси</a>
+                <span class="header__user">👨‍🏫 {{username}}</span>
+                <a href="/logout" class="btn btn--outline btn--sm">Вийти</a>
+            </nav>
+        </div>
+    </header>
+
+    <main class="main">
+        <div class="page-header">
+            <h1 class="page-title">👥 Студенти — {{courseName}}</h1>
+        </div>
+
+        <div class="table-wrap">
+            <table class="table">
+                <thead>
+                    <tr>
+                        <th>Студент</th>
+                        <th>Дата запису</th>
+                        <th>Статус</th>
+                        <th>Оцінка (1-100)</th>
+                        <th>Відгук</th>
+                        <th>Дія</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    {{#each enrollments}}
+                    <tr>
+                        <td><strong>{{StudentName}}</strong></td>
+                        <td>{{EnrolledAt}}</td>
+                        <td>
+                            {{#if HasGrade}}
+                            <span class="badge badge--success">Завершено</span>
+                            {{/if}}
+                            {{#if IsActive}}
+                            <span class="badge badge--info">Активний</span>
+                            {{/if}}
+                        </td>
+                        <td>
+                            {{#if HasGrade}}
+                            <span class="grade">{{Grade}}</span>
+                            {{/if}}
+                        </td>
+                        <td class="td--feedback">{{Feedback}}</td>
+                        <td>
+                            {{#if IsActive}}
+                            <button class="btn btn--primary btn--sm"
+                                    onclick="openGradeModal('{{EnrollmentId}}', '{{StudentName}}', '{{courseId}}')">
+                                ✏️ Виставити оцінку
+                            </button>
+                            {{/if}}
+                            {{#if HasGrade}}
+                            <button class="btn btn--outline btn--sm"
+                                    onclick="openGradeModal('{{EnrollmentId}}', '{{StudentName}}', '{{courseId}}')">
+                                🔄 Змінити оцінку
+                            </button>
+                            {{/if}}
+                        </td>
+                    </tr>
+                    {{/each}}
+                </tbody>
+            </table>
+        </div>
+    </main>
+
+    <!-- Grade Modal -->
+    <div id="gradeModal" class="modal" style="display:none">
+        <div class="modal__backdrop" onclick="closeModal()"></div>
+        <div class="modal__box">
+            <h2 class="modal__title">Виставити оцінку</h2>
+            <p class="modal__sub">Студент: <strong id="modalStudentName"></strong></p>
+
+            <form method="POST" action="/teacher/grade" class="form">
+                <input type="hidden" name="enrollmentId" id="modalEnrollmentId">
+                <input type="hidden" name="courseId" id="modalCourseId">
+
+                <div class="form__group">
+                    <label class="form__label" for="grade">Оцінка (1–100) *</label>
+                    <input class="form__input form__input--short" type="number"
+                           id="grade" name="grade" min="1" max="100" required>
+                </div>
+
+                <div class="form__group">
+                    <label class="form__label" for="feedback">Відгук</label>
+                    <textarea class="form__input form__textarea" id="feedback" name="feedback"
+                              rows="3" placeholder="Коментар до оцінки..."></textarea>
+                </div>
+
+                <div class="form__actions">
+                    <button type="submit" class="btn btn--primary">Зберегти</button>
+                    <button type="button" class="btn btn--outline" onclick="closeModal()">Скасувати</button>
+                </div>
+            </form>
+        </div>
+    </div>
+
+    <script>
+function openGradeModal(enrollmentId, studentName, courseId) {
+  document.getElementById('modalEnrollmentId').value = enrollmentId;
+  document.getElementById('modalStudentName').textContent = studentName;
+  document.getElementById('modalCourseId').value = courseId;
+  document.getElementById('gradeModal').style.display = 'flex';
+  document.getElementById('grade').focus();
+}
+function closeModal() {
+  document.getElementById('gradeModal').style.display = 'none';
+}
+document.addEventListener('keydown', e => { if (e.key === 'Escape') closeModal(); });
+    </script>
+</body>
+</html>

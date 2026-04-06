@@ -1,0 +1,79 @@
+﻿<!DOCTYPE html>
+<html lang="uk">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>{{title}} — Факультативи</title>
+    <link rel="stylesheet" href="/static/css/style.css">
+</head>
+<body>
+    <header class="header">
+        <div class="header__inner">
+            <span class="header__logo">🎓 Факультативи</span>
+            <nav class="header__nav">
+                <a href="/student/courses" class="header__link">Всі курси</a>
+                <a href="/student/my-courses" class="header__link header__link--active">Мої курси</a>
+                <span class="header__user">👤 {{username}}</span>
+                <a href="/logout" class="btn btn--outline btn--sm">Вийти</a>
+            </nav>
+        </div>
+    </header>
+
+    <main class="main">
+        <div class="page-header">
+            <h1 class="page-title">📋 {{title}}</h1>
+        </div>
+
+        <div class="table-wrap">
+            <table class="table">
+                <thead>
+                    <tr>
+                        <th>Курс</th>
+                        <th>Викладач</th>
+                        <th>Дата запису</th>
+                        <th>Статус</th>
+                        <th>Оцінка</th>
+                        <th>Відгук</th>
+                        <th>Дія</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    {{#each enrollments}}
+                    <tr>
+                        <td><strong>{{CourseName}}</strong></td>
+                        <td>{{TeacherName}}</td>
+                        <td>{{EnrolledAt}}</td>
+                        <td>
+                            {{#if HasGrade}}
+                            <span class="badge badge--success">Завершено</span>
+                            {{/if}}
+                            {{#if HasGrade}}{{/if}}{{Status}}
+                        </td>
+                        <td>
+                            {{#if HasGrade}}
+                            <span class="grade">{{Grade}}</span>
+                            {{/if}}
+                            {{#if HasGrade}}{{/if}}—
+                        </td>
+                        <td class="td--feedback">{{Feedback}}</td>
+                        <td>
+                            {{#if HasGrade}}
+                            <span class="text-muted">—</span>
+                            {{/if}}
+                            {{#if HasGrade}}{{/if}}
+                            <form method="POST" action="/student/unenroll" style="display:inline">
+                                <input type="hidden" name="enrollmentId" value="{{Id}}">
+                                <button type="submit" class="btn btn--danger btn--sm"
+                                        onclick="return confirm('Відписатись від курсу?')">
+                                    Відписатись
+                                </button>
+                            </form>
+                        </td>
+                    </tr>
+                    {{/each}}
+                </tbody>
+            </table>
+        </div>
+    </main>
+</body>
+</html>

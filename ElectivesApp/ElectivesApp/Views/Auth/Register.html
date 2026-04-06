@@ -1,0 +1,47 @@
+﻿<!DOCTYPE html>
+<html lang="uk">
+<head>
+    <meta charset="UTF-8">
+    <title>Реєстрація — Факультативи</title>
+    <link rel="stylesheet" href="/static/css/style.css">
+</head>
+<body class="body--center">
+    <div class="login-card">
+        <h1 class="login-card__title">Реєстрація</h1>
+
+        {{#if error}}
+        <div class="alert alert--error">{{error}}</div>
+        {{/if}}
+
+        <form method="POST" action="/register" class="form">
+            <div class="form__group">
+                <label class="form__label">Повне ім'я</label>
+                <input class="form__input" type="text" name="fullName" required>
+            </div>
+            <div class="form__group">
+                <label class="form__label">Логін</label>
+                <input class="form__input" type="text" name="username" required>
+            </div>
+            <div class="form__group">
+                <label class="form__label">Email</label>
+                <input class="form__input" type="email" name="email" required>
+            </div>
+            <div class="form__group">
+                <label class="form__label">Пароль</label>
+                <input class="form__input" type="password" name="password" required>
+            </div>
+            <div class="form__group">
+                <label class="form__label">Хто ви?</label>
+                <select class="form__input" name="role">
+                    <option value="student">Студент</option>
+                    <option value="teacher">Викладач</option>
+                </select>
+            </div>
+            <button class="btn btn--primary btn--full" type="submit">Зареєструватися</button>
+            <p style="text-align:center; margin-top:1rem">
+                Вже маєте аккаунт? <a href="/login">Увійти</a>
+            </p>
+        </form>
+    </div>
+</body>
+</html>

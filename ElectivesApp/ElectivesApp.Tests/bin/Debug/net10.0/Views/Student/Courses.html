@@ -1,0 +1,63 @@
+﻿<!DOCTYPE html>
+<html lang="uk">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>{{title}} — Факультативи</title>
+    <link rel="stylesheet" href="/static/css/style.css">
+</head>
+<body>
+    <header class="header">
+        <div class="header__inner">
+            <span class="header__logo">🎓 Факультативи</span>
+            <nav class="header__nav">
+                <a href="/student/courses" class="header__link header__link--active">Всі курси</a>
+                <a href="/student/my-courses" class="header__link">Мої курси</a>
+                <span class="header__user">👤 {{username}}</span>
+                <a href="/logout" class="btn btn--outline btn--sm">Вийти</a>
+            </nav>
+        </div>
+    </header>
+
+    <main class="main">
+        <div class="page-header">
+            <h1 class="page-title">📚 {{title}}</h1>
+        </div>
+
+        <div class="card-grid">
+            {{#each courses}}
+            <div class="card">
+                <div class="card__header">
+                    <h3 class="card__title">{{Title}}</h3>
+                    {{#if IsEnrolled}}
+                    <span class="badge badge--success">✓ Записаний</span>
+                    {{/if}}
+                </div>
+                <p class="card__desc">{{Description}}</p>
+                <div class="card__meta">
+                    <span>👨‍🏫 {{TeacherName}}</span>
+                    <span>👥 до {{MaxStudents}} студ.</span>
+                </div>
+                <div class="card__footer">
+                    {{#if IsEnrolled}}
+                    <a href="/student/my-courses" class="btn btn--secondary btn--sm">Мої курси →</a>
+                    {{/if}}
+                    {{#if IsEnrolled}}
+                    {{/if}}
+                    <form method="POST" action="/student/enroll" style="display:inline">
+                        <input type="hidden" name="courseId" value="{{Id}}">
+                        {{#if IsEnrolled}}
+                        {{/if}}
+                        <button type="submit" class="btn btn--primary btn--sm"
+                                {{#if IsEnrolled}} disabled style="opacity:.5;cursor:not-allowed" {{/if}}>
+                            {{#if IsEnrolled}}Вже записані{{/if}}
+                            {{#if IsEnrolled}}{{/if}}Записатись
+                        </button>
+                    </form>
+                </div>
+            </div>
+            {{/each}}
+        </div>
+    </main>
+</body>
+</html>

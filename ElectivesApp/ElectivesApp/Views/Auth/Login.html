@@ -1,0 +1,39 @@
+﻿<!DOCTYPE html>
+<html lang="uk">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Вхід — Факультативи</title>
+    <link rel="stylesheet" href="/static/css/style.css">
+</head>
+<body class="body--center">
+
+    <div class="login-card">
+        <div class="login-card__logo">🎓</div>
+        <h1 class="login-card__title">Система Факультативи</h1>
+        <p class="login-card__sub">Увійдіть до свого облікового запису</p>
+
+        {{#if error}}
+        <div class="alert alert--error">{{error}}</div>
+        {{/if}}
+
+    <form method="POST" action="/login" class="form">
+        <div class="form__group">
+            <label class="form__label" for="username">Логін</label>
+            <input class="form__input" type="text" id="username" name="username"
+                   placeholder="Введіть логін" required autofocus>
+        </div>
+        <div class="form__group">
+            <label class="form__label" for="password">Пароль</label>
+            <input class="form__input" type="password" id="password" name="password"
+                   placeholder="Введіть пароль" required>
+        </div>
+        <button class="btn btn--primary btn--full" type="submit">Увійти</button>
+        <p style="text-align:center; margin-top:1rem">
+            Немає аккаунту? <a href="/register">Зареєструватися</a>
+        </p>
+    </form>
+    </div>
+
+</body>
+</html>

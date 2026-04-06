@@ -1,0 +1,64 @@
+﻿<!DOCTYPE html>
+<html lang="uk">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>{{title}} — Факультативи</title>
+    <link rel="stylesheet" href="/static/css/style.css">
+</head>
+<body>
+    <header class="header">
+        <div class="header__inner">
+            <span class="header__logo">🎓 Факультативи</span>
+            <nav class="header__nav">
+                <a href="/teacher/courses" class="header__link">← Мої курси</a>
+                <span class="header__user">👨‍🏫 {{username}}</span>
+                <a href="/logout" class="btn btn--outline btn--sm">Вийти</a>
+            </nav>
+        </div>
+    </header>
+
+    <main class="main">
+        <div class="form-page">
+            <h1 class="page-title">{{title}}</h1>
+
+            {{#if error}}
+            <div class="alert alert--error">{{error}}</div>
+            {{/if}}
+
+            <form method="POST" action="{{action}}" class="form form--card">
+                <div class="form__group">
+                    <label class="form__label" for="title">Назва курсу *</label>
+                    <input class="form__input" type="text" id="title" name="title"
+                           value="{{Title}}" placeholder="Наприклад: Алгоритми та структури даних" required>
+                </div>
+
+                <div class="form__group">
+                    <label class="form__label" for="description">Опис курсу *</label>
+                    <textarea class="form__input form__textarea" id="description" name="description"
+                              rows="4" placeholder="Короткий опис змісту курсу..." required>{{Description}}</textarea>
+                </div>
+
+                <div class="form__group">
+                    <label class="form__label" for="maxStudents">Максимальна кількість студентів</label>
+                    <input class="form__input form__input--short" type="number" id="maxStudents"
+                           name="maxStudents" value="{{MaxStudents}}" min="1" max="500">
+                </div>
+
+                <div class="form__group form__group--checkbox">
+                    <label class="checkbox-label">
+                        <input type="checkbox" name="isActive" id="isActive"
+                               {{#if IsActive}} checked{{/if}}>
+                        <span>Курс активний (відображається для студентів)</span>
+                    </label>
+                </div>
+
+                <div class="form__actions">
+                    <button type="submit" class="btn btn--primary">{{btnLabel}}</button>
+                    <a href="/teacher/courses" class="btn btn--outline">Скасувати</a>
+                </div>
+            </form>
+        </div>
+    </main>
+</body>
+</html>
